@@ -419,12 +419,11 @@ export default function Home() {
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="font-bold text-lg text-gray-900 mb-3">Contacts Directs</h3>
                 <div className="space-y-2 text-gray-700">
-                  <p><span className="font-semibold">Téléphone:</span> +225 07 59 01 16 16</p>
+                  <p><span className="font-semibold">Telephone:</span> +225 07 59 01 16 16</p>
                   <p><span className="font-semibold">Email:</span> <a href="mailto:info@pros-motors-civ.com" className="text-blue-600 hover:text-blue-700 underline">info@pros-motors-civ.com</a></p>
                   <p><span className="font-semibold">DG:</span> 06 00 16 00 / 01 19 68 70</p>
                   <p><span className="font-semibold">Admin:</span> 07 59 92 36 42</p>
                 </div>
-              </div>
               </div>
             </div>
 
