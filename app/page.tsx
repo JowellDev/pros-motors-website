@@ -392,7 +392,7 @@ export default function Home() {
                 Appeler: +225 07 59 01 16 16
               </a>
               <a href="mailto:info@pros-motors-civ.com" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-lg transition flex items-center justify-center gap-2">
-                📧 Email
+                Email
               </a>
 
               {/* Location Info */}
@@ -421,8 +421,6 @@ export default function Home() {
                 <div className="space-y-2 text-gray-700">
                   <p><span className="font-semibold">Telephone:</span> +225 07 59 01 16 16</p>
                   <p><span className="font-semibold">Email:</span> <a href="mailto:info@pros-motors-civ.com" className="text-blue-600 hover:text-blue-700 underline">info@pros-motors-civ.com</a></p>
-                  <p><span className="font-semibold">DG:</span> 06 00 16 00 / 01 19 68 70</p>
-                  <p><span className="font-semibold">Admin:</span> 07 59 92 36 42</p>
                 </div>
               </div>
             </div>
@@ -436,7 +434,7 @@ export default function Home() {
                   <Input placeholder="Votre nom" className="w-full" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Telephone</label>
                   <Input placeholder="+225 XX XX XX XX XX" type="tel" className="w-full" />
                 </div>
                 <div>
