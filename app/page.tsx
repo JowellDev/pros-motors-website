@@ -380,22 +380,15 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contactez-Nous</h2>
           </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Contact Buttons & Info */}
             <div className="space-y-4">
-              <a
-                href="tel:+22507590116"
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-4 rounded-lg transition flex items-center justify-center gap-2"
-              >
+              <a href="tel:+22507590116" className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-4 rounded-lg transition flex items-center justify-center gap-2">
                 <Phone className="w-5 h-5" />
                 Appeler: +225 07 59 01 16 16
               </a>
               <a href="mailto:info@pros-motors-civ.com" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-lg transition flex items-center justify-center gap-2">
                 Email
               </a>
-
-              {/* Location Info */}
               <div className="bg-white p-6 rounded-lg border border-gray-200 space-y-3">
                 <h3 className="font-bold text-lg text-gray-900">Localisation</h3>
                 <div className="space-y-2 text-gray-700">
@@ -407,7 +400,6 @@ export default function Home() {
                   <p className="text-sm">Entre lycée technique et hôtel Palm Club</p>
                 </div>
               </div>
-
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="font-bold text-lg text-gray-900 mb-3">Horaires</h3>
                 <p className="text-gray-700 flex items-center gap-2">
@@ -415,17 +407,14 @@ export default function Home() {
                   Lundi-Samedi, 7h30-18h00
                 </p>
               </div>
-
               <div className="bg-white p-6 rounded-lg border border-gray-200">
-                <h3 className="font-bold text-lg text-gray-900 mb-3">Contacts Directs</h3>
+                <h3 className="font-bold text-lg text-gray-900 mb-3">Contacts</h3>
                 <div className="space-y-2 text-gray-700">
                   <p><span className="font-semibold">Telephone:</span> +225 07 59 01 16 16</p>
                   <p><span className="font-semibold">Email:</span> <a href="mailto:info@pros-motors-civ.com" className="text-blue-600 hover:text-blue-700 underline">info@pros-motors-civ.com</a></p>
                 </div>
               </div>
             </div>
-
-            {/* Contact Form */}
             <div className="bg-white p-8 rounded-lg border border-gray-200">
               <h3 className="font-bold text-lg text-gray-900 mb-6">Formulaire de Contact</h3>
               <form className="space-y-4">
