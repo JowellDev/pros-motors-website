@@ -110,7 +110,7 @@ export default function Home() {
           {/* Call Button */}
           <a href="tel:22441888" className="hidden sm:flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm font-semibold">
             <Phone className="w-4 h-4" />
-            22 44 18 88
+           +225 07 59 01 16 16
           </a>
         </div>
 
@@ -204,21 +204,23 @@ export default function Home() {
                   key={idx}
                   className={`p-6 rounded-lg border-2 transition hover:shadow-lg ${
                     service.highlight
-                      ? 'border-red-600 bg-red-50'
-                      : 'border-gray-200 bg-white'
+                      ? 'border-red-600 bg-white'
+                      : 'border-gray-300 bg-white'
                   }`}
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <Icon className={`w-8 h-8 ${service.highlight ? 'text-red-600' : 'text-blue-600'}`} />
+                  <div className="flex items-start justify-between mb-4">
+                    <div className={`p-2 rounded-lg ${service.highlight ? 'bg-red-100' : 'bg-blue-100'}`}>
+                      <Icon className={`w-7 h-7 ${service.highlight ? 'text-red-600' : 'text-blue-600'}`} />
+                    </div>
                     {service.badge && (
                       <span className="px-2 py-1 bg-red-600 text-white text-xs font-bold rounded">
                         {service.badge}
                       </span>
                     )}
                   </div>
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">{service.name}</h3>
-                  <p className="text-gray-600 text-sm mb-3">{service.description}</p>
-                  <button className="text-red-600 font-semibold text-sm hover:text-red-700 flex items-center gap-1">
+                  <h3 className="font-bold text-xl text-black mb-2">{service.name}</h3>
+                  <p className="text-gray-700 font-medium text-sm mb-4 leading-relaxed">{service.description}</p>
+                  <button className="text-red-600 font-bold text-sm hover:text-red-700 flex items-center gap-1">
                     En savoir plus →
                   </button>
                 </div>
@@ -387,7 +389,7 @@ export default function Home() {
                 className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-4 rounded-lg transition flex items-center justify-center gap-2"
               >
                 <Phone className="w-5 h-5" />
-                Appeler: 22 44 18 88
+                Appeler: +225 07 59 01 16 16
               </a>
               <button className="w-full bg-white border-2 border-gray-300 hover:bg-gray-50 text-gray-900 font-bold py-4 px-4 rounded-lg transition">
                 📧 Email
@@ -417,8 +419,7 @@ export default function Home() {
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="font-bold text-lg text-gray-900 mb-3">Contacts Directs</h3>
                 <div className="space-y-2 text-gray-700">
-                  <p><span className="font-semibold">DG:</span> 06 00 16 00 / 01 19 68 70</p>
-                  <p><span className="font-semibold">Admin:</span> 07 59 92 36 42</p>
+                  <p> +225 07 59 01 16 16</p>
                 </div>
               </div>
             </div>
@@ -433,7 +434,7 @@ export default function Home() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
-                  <Input placeholder="+225 XX XX XX XX" type="tel" className="w-full" />
+                  <Input placeholder="+225 XX XX XX XX XX" type="tel" className="w-full" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
@@ -482,7 +483,7 @@ export default function Home() {
               <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <a href="tel:22441888" className="hover:text-white transition">22 44 18 88</a>
+                  <a href="tel:22441888" className="hover:text-white transition">+225 07 59 01 16 16</a>
                 </li>
                 <li className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
@@ -497,7 +498,7 @@ export default function Home() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-            <p>© 2024 PROS-MOTORS C.I SARL. Tous droits réservés.</p>
+            <p>© ${Date().getFullYear()} PROS-MOTORS C.I SARL. Tous droits réservés.</p>
           </div>
         </div>
       </footer>
