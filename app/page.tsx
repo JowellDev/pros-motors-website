@@ -108,9 +108,9 @@ export default function Home() {
           </nav>
 
           {/* Call Button */}
-          <a href="tel:22441888" className="hidden sm:flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm font-semibold">
+          <a href="tel:+22507590116" className="hidden sm:flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm font-semibold">
             <Phone className="w-4 h-4" />
-           +225 07 59 01 16 16
+            +225 07 59 01 16 16
           </a>
         </div>
 
@@ -152,7 +152,7 @@ export default function Home() {
           {/* CTA Buttons */}
           <div className="flex flex-col gap-3 pt-4">
             <a
-              href="tel:22441888"
+              href="tel:+22507590116"
               className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-4 rounded-lg transition flex items-center justify-center gap-2"
             >
               <Phone className="w-5 h-5" />
@@ -385,7 +385,7 @@ export default function Home() {
             {/* Contact Buttons & Info */}
             <div className="space-y-4">
               <a
-                href="tel:22441888"
+                href="tel:+22507590116"
                 className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-4 rounded-lg transition flex items-center justify-center gap-2"
               >
                 <Phone className="w-5 h-5" />
@@ -451,7 +451,7 @@ export default function Home() {
 
       {/* Floating Action Button */}
       <a
-        href="tel:22441888"
+        href="tel:+22507590116"
         className="fixed bottom-6 right-6 bg-red-600 hover:bg-red-700 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition animate-pulse"
         aria-label="Call PROS-MOTORS"
       >
@@ -483,7 +483,7 @@ export default function Home() {
               <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <a href="tel:22441888" className="hover:text-white transition">+225 07 59 01 16 16</a>
+                  <a href="tel:+22507590116" className="hover:text-white transition">+225 07 59 01 16 16</a>
                 </li>
                 <li className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
@@ -498,7 +498,7 @@ export default function Home() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-            <p>© ${Date().getFullYear()} PROS-MOTORS C.I SARL. Tous droits réservés.</p>
+            <p>© {new Date().getFullYear()} PROS-MOTORS C.I SARL. Tous droits réservés.</p>
           </div>
         </div>
       </footer>
