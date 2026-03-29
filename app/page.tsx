@@ -169,20 +169,20 @@ export default function Home() {
           {/* Stats Grid */}
           <div className="grid grid-cols-2 gap-3 pt-8">
             <div className="bg-white bg-opacity-10 p-4 rounded-lg text-center">
-              <p className="text-2xl font-bold">1500m²</p>
-              <p className="text-sm text-gray-300">d&apos;Atelier</p>
+              <p className="text-2xl font-bold text-black">1500m²</p>
+              <p className="text-sm font-semibold text-black">d&apos;Atelier</p>
             </div>
             <div className="bg-white bg-opacity-10 p-4 rounded-lg text-center">
-              <p className="text-2xl font-bold">6j/7</p>
-              <p className="text-sm text-gray-300">Ouvert</p>
+              <p className="text-2xl font-bold text-black">6j/7</p>
+              <p className="text-sm font-semibold text-black">Ouvert</p>
             </div>
             <div className="bg-white bg-opacity-10 p-4 rounded-lg text-center">
-              <p className="text-2xl font-bold">7h30-18h</p>
-              <p className="text-sm text-gray-300">Horaires</p>
+              <p className="text-2xl font-bold text-black">7h30-18h</p>
+              <p className="text-sm font-semibold text-black">Horaires</p>
             </div>
             <div className="bg-white bg-opacity-10 p-4 rounded-lg text-center">
-              <p className="text-2xl font-bold">24/7</p>
-              <p className="text-sm text-gray-300">Dépannage</p>
+              <p className="text-2xl font-bold text-black">24/7</p>
+              <p className="text-sm font-semibold text-black">Dépannage</p>
             </div>
           </div>
         </div>
@@ -326,7 +326,7 @@ export default function Home() {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex gap-2">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>L&apos;équipe: Mécaniciens qualifiés et formés régulièrement</span>
+                    <span>L&apos;équipe: Mécaniciens qualifi��s et formés régulièrement</span>
                   </li>
                   <li className="flex gap-2">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -391,9 +391,9 @@ export default function Home() {
                 <Phone className="w-5 h-5" />
                 Appeler: +225 07 59 01 16 16
               </a>
-              <button className="w-full bg-white border-2 border-gray-300 hover:bg-gray-50 text-gray-900 font-bold py-4 px-4 rounded-lg transition">
+              <a href="mailto:info@pros-motors-civ.com" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-lg transition flex items-center justify-center gap-2">
                 📧 Email
-              </button>
+              </a>
 
               {/* Location Info */}
               <div className="bg-white p-6 rounded-lg border border-gray-200 space-y-3">
@@ -419,8 +419,12 @@ export default function Home() {
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="font-bold text-lg text-gray-900 mb-3">Contacts Directs</h3>
                 <div className="space-y-2 text-gray-700">
-                  <p> +225 07 59 01 16 16</p>
+                  <p><span className="font-semibold">Téléphone:</span> +225 07 59 01 16 16</p>
+                  <p><span className="font-semibold">Email:</span> <a href="mailto:info@pros-motors-civ.com" className="text-blue-600 hover:text-blue-700 underline">info@pros-motors-civ.com</a></p>
+                  <p><span className="font-semibold">DG:</span> 06 00 16 00 / 01 19 68 70</p>
+                  <p><span className="font-semibold">Admin:</span> 07 59 92 36 42</p>
                 </div>
+              </div>
               </div>
             </div>
 
