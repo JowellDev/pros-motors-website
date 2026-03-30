@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, Phone, MapPin, Clock, Wrench, Zap, Palette, Snowflake, Package, Droplets, AlertCircle, CheckCircle, Shield, Users, Award, Heart, ChevronDown, Star, Quote, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Menu, X, Phone, MapPin, Clock, Wrench, Zap, Palette, Snowflake, Package, Droplets, AlertCircle, CheckCircle, Shield, Users, Award, Heart, ChevronDown, Star, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -9,9 +9,6 @@ import { Textarea } from '@/components/ui/textarea';
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedAbout, setExpandedAbout] = useState(false);
-  const [galleryFilter, setGalleryFilter] = useState('Tout');
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   const services = [
     {
@@ -103,28 +100,6 @@ export default function Home() {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  const photos = [
-    { id: 1, url: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=800&fit=crop&q=80', category: 'Atelier', alt: 'Vue générale de l\'atelier PROS-MOTORS avec ponts élévateurs', caption: 'Notre atelier moderne de 1500m² équipé des dernières technologies' },
-    { id: 2, url: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=800&fit=crop&q=80', category: 'Atelier', alt: 'Zone de travail spacieuse de l\'atelier', caption: 'Espace de travail organisé et propre pour un service de qualité' },
-    { id: 3, url: 'https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800&h=800&fit=crop&q=80', category: 'Atelier', alt: 'Installations modernes du garage', caption: 'Équipements professionnels pour tous types de réparations' },
-    { id: 4, url: 'https://images.unsplash.com/photo-1632922267756-9f410af0fa89?w=800&h=800&fit=crop&q=80', category: 'Atelier', alt: 'Zone de réparation automobile', caption: 'Capacité d\'accueil de 50 véhicules simultanément' },
-    { id: 5, url: 'https://images.unsplash.com/photo-1487973645290-06d7b9b0df54?w=800&h=800&fit=crop&q=80', category: 'Atelier', alt: 'Atelier de mécanique bien éclairé', caption: 'Environnement de travail optimal pour nos techniciens' },
-    { id: 6, url: 'https://images.unsplash.com/photo-1530048013302-b3ffba37b3ef?w=800&h=800&fit=crop&q=80', category: 'Équipement', alt: 'Scanner de diagnostic professionnel', caption: 'Diagnostic de précision avec équipement de dernière génération' },
-    { id: 7, url: 'https://images.unsplash.com/photo-1488092913552-e7e8a4e96350?w=800&h=800&fit=crop&q=80', category: 'Équipement', alt: 'Outils professionnels de réparation', caption: 'Outillage complet pour toutes interventions mécaniques' },
-    { id: 8, url: 'https://images.unsplash.com/photo-1590223923040-b5fab64ac16c?w=800&h=800&fit=crop&q=80', category: 'Équipement', alt: 'Équipement de tôlerie et peinture', caption: 'Cabine de peinture avec contrôle climatique professionnel' },
-    { id: 9, url: 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=800&h=800&fit=crop&q=80', category: 'Équipement', alt: 'Matériel de diagnostic automobile', caption: 'Technologies avancées pour diagnostics précis et rapides' },
-    { id: 10, url: 'https://images.unsplash.com/photo-1570129477492-45a003537e1f?w=800&h=800&fit=crop&q=80', category: 'Équipe', alt: 'Mécanicien PROS-MOTORS au travail', caption: 'Équipe qualifiée et formée aux dernières techniques' },
-    { id: 11, url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=800&fit=crop&q=80', category: 'Équipe', alt: 'Technicien effectuant un diagnostic', caption: 'Professionnalisme et expertise à votre service' },
-    { id: 12, url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=800&fit=crop&q=80', category: 'Équipe', alt: 'Équipe de mécaniciens professionnels', caption: 'Une équipe soudée pour votre satisfaction' },
-    { id: 13, url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=800&fit=crop&q=80', category: 'Équipe', alt: 'Service clientèle PROS-MOTORS', caption: 'Accueil chaleureux et conseil personnalisé' },
-    { id: 14, url: 'https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800&h=800&fit=crop&q=80', category: 'Services', alt: 'Service de vidange rapide', caption: 'Quick Service - livraison le jour même' },
-    { id: 15, url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=800&fit=crop&q=80', category: 'Services', alt: 'Réparation de climatisation automobile', caption: 'Service climatisation avec garantie pièces d\'origine' },
-    { id: 16, url: 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=800&h=800&fit=crop&q=80', category: 'Services', alt: 'Station de lavage automobile', caption: 'Nettoyage complet et lustrage professionnel' },
-  ];
-
-  const categories = ['Tout', 'Atelier', 'Équipement', 'Équipe', 'Services'];
-  const filteredPhotos = galleryFilter === 'Tout' ? photos : photos.filter(p => p.category === galleryFilter);
 
   return (
     <div className="min-h-screen bg-white font-sans">
@@ -351,132 +326,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Photo Gallery Section */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Notre Atelier en Images</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Découvrez nos installations modernes</p>
-          </div>
-
-          {/* Filter Tabs */}
-          <div className="flex overflow-x-auto gap-3 mb-8 pb-2 -mx-4 px-4 md:justify-center md:flex-wrap md:overflow-visible">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setGalleryFilter(cat)}
-                className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all whitespace-nowrap ${
-                  galleryFilter === cat
-                    ? 'bg-red-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-100'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Photo Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredPhotos.map((photo, idx) => (
-              <div
-                key={photo.id}
-                onClick={() => {
-                  setCurrentPhotoIndex(filteredPhotos.findIndex(p => p.id === photo.id));
-                  setLightboxOpen(true);
-                }}
-                className="group relative overflow-hidden rounded-lg aspect-square cursor-pointer bg-gray-200"
-              >
-                <img
-                  src={photo.url}
-                  alt={photo.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                />
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 flex items-center justify-center">
-                  <Eye className="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                {/* Category Badge */}
-                <div className="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                  {photo.category}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Lightbox Modal */}
-      {lightboxOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center p-4"
-          onClick={(e) => e.target === e.currentTarget && setLightboxOpen(false)}
-        >
-          {/* Close Button */}
-          <button
-            onClick={() => setLightboxOpen(false)}
-            className="absolute top-4 md:top-6 right-4 md:right-6 bg-red-600 hover:bg-red-700 text-white p-2 md:p-3 rounded-full transition-colors"
-            aria-label="Close lightbox"
-          >
-            <X className="w-6 h-6 md:w-7 h-7" />
-          </button>
-
-          {/* Image Container */}
-          <div className="flex flex-col items-center gap-4 max-w-4xl w-full">
-            <img
-              src={filteredPhotos[currentPhotoIndex].url}
-              alt={filteredPhotos[currentPhotoIndex].alt}
-              className="max-h-[70vh] md:max-h-[80vh] w-full object-contain rounded-lg"
-            />
-
-            {/* Caption and Counter */}
-            <div className="text-center w-full">
-              <p className="text-white text-base md:text-lg font-medium mb-2">
-                {filteredPhotos[currentPhotoIndex].caption}
-              </p>
-              <p className="text-gray-400 text-sm md:text-base">
-                {currentPhotoIndex + 1} / {filteredPhotos.length}
-              </p>
-            </div>
-          </div>
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={() => setCurrentPhotoIndex((currentPhotoIndex - 1 + filteredPhotos.length) % filteredPhotos.length)}
-            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 bg-gray-700/50 hover:bg-gray-700 text-white p-2 md:p-3 rounded-full transition-colors"
-            aria-label="Previous photo"
-          >
-            <ChevronLeft className="w-6 h-6 md:w-8 h-8" />
-          </button>
-
-          <button
-            onClick={() => setCurrentPhotoIndex((currentPhotoIndex + 1) % filteredPhotos.length)}
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 bg-gray-700/50 hover:bg-gray-700 text-white p-2 md:p-3 rounded-full transition-colors"
-            aria-label="Next photo"
-          >
-            <ChevronRight className="w-6 h-6 md:w-8 h-8" />
-          </button>
-
-          {/* Indicators */}
-          <div className="absolute bottom-6 flex gap-2 items-center justify-center">
-            {filteredPhotos.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentPhotoIndex(idx)}
-                className={`transition-all ${
-                  idx === currentPhotoIndex
-                    ? 'bg-red-600 w-8 h-1.5'
-                    : 'bg-gray-500 w-1.5 h-1.5 rounded-full'
-                }`}
-                aria-label={`Go to photo ${idx + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Pricing Section */}
       <section id="pricing" className="py-20 md:py-28 bg-gray-50">
