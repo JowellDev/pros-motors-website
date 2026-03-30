@@ -57,12 +57,12 @@ export default function Home() {
   ];
 
   const benefits = [
-    { icon: Heart, title: 'Prix Competitifs', description: 'Moins cher que les concessionnaires' },
-    { icon: Zap, title: 'Rapidite', description: 'Quick Service disponible' },
-    { icon: CheckCircle, title: "Pieces d'Origine", description: 'Directement du concessionnaire' },
-    { icon: Shield, title: 'Securite 24/7', description: 'Surveillance FAC Securite' },
-    { icon: Award, title: 'Garantie 2 Mois', description: 'Sur toutes pieces concessionnaire' },
-    { icon: CheckCircle, title: 'Controle Qualite', description: '20 points de controle gratuits' },
+    { icon: Heart, title: 'Prix Competitifs', description: 'Moins cher que les concessionnaires', color: 'red' },
+    { icon: Zap, title: 'Rapidite', description: 'Quick Service disponible', color: 'blue' },
+    { icon: CheckCircle, title: "Pieces d'Origine", description: 'Directement du concessionnaire', color: 'red' },
+    { icon: Shield, title: 'Securite 24/7', description: 'Surveillance 24/7', color: 'blue' },
+    { icon: Award, title: 'Garantie 1 Mois', description: 'Sur toutes pieces concessionnaire', color: 'red' },
+    { icon: CheckCircle, title: 'Controle Qualite', description: '20 points de controle gratuits', color: 'blue' },
   ];
 
   const pricing = [
@@ -132,7 +132,7 @@ export default function Home() {
             ))}
           </nav>
 
-          <a href="tel:+22507590116" className="hidden sm:flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl transition text-sm font-semibold shadow-sm">
+          <a href="tel:+22507590116" className="hidden sm:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition text-sm font-semibold shadow-sm">
             <Phone className="w-4 h-4" />
             +225 07 59 01 16 16
           </a>
@@ -194,7 +194,7 @@ export default function Home() {
 
             <div className="flex items-center gap-2 text-gray-300">
               <MapPin className="w-4 h-4 text-red-400 flex-shrink-0" />
-              <span className="text-sm">Cocody, Batafoe — 500m du groupe scolaire SAFAK</span>
+              <span className="text-sm">Cocody 150 lgts — a 10m du Palm Club</span>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -216,7 +216,7 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-16">
             {[
-              { value: '1500m2', label: "d'Atelier" },
+              { value: '1000m2', label: "d'Atelier" },
               { value: '6j/7', label: 'Ouvert' },
               { value: '7h30-18h', label: 'Horaires' },
               { value: '24/7', label: 'Depannage' },
@@ -281,10 +281,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {benefits.map((benefit, idx) => {
               const Icon = benefit.icon;
+              const isBlue = benefit.color === 'blue';
               return (
-                <div key={idx} className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 hover:border-red-500/40 transition-all group">
-                  <div className="w-10 h-10 bg-red-600/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-red-600 transition-colors">
-                    <Icon className="w-5 h-5 text-red-400 group-hover:text-white transition-colors" />
+                <div key={idx} className={`bg-white/5 border border-white/10 p-6 rounded-2xl transition-all group ${isBlue ? 'hover:bg-blue-900/20 hover:border-blue-500/40' : 'hover:bg-white/10 hover:border-red-500/40'}`}>
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-colors ${isBlue ? 'bg-blue-600/20 group-hover:bg-blue-600' : 'bg-red-600/20 group-hover:bg-red-600'}`}>
+                    <Icon className={`w-5 h-5 transition-colors group-hover:text-white ${isBlue ? 'text-blue-400' : 'text-red-400'}`} />
                   </div>
                   <h3 className="font-black text-lg text-white mb-1">{benefit.title}</h3>
                   <p className="text-gray-400 text-sm">{benefit.description}</p>
@@ -343,9 +344,9 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="max-w-3xl mx-auto bg-gradient-to-r from-red-600 to-red-800 text-white p-5 rounded-2xl flex items-center gap-3 shadow-lg">
+          <div className="max-w-3xl mx-auto bg-gradient-to-r from-blue-600 to-blue-800 text-white p-5 rounded-2xl flex items-center gap-3 shadow-lg">
             <CheckCircle className="w-6 h-6 flex-shrink-0" />
-            <p className="font-semibold text-sm">Garantie 2 mois incluse sur toutes les pieces du concessionnaire</p>
+            <p className="font-semibold text-sm">Garantie 1 mois incluse sur toutes les pieces du concessionnaire</p>
           </div>
         </div>
       </section>
@@ -365,10 +366,10 @@ export default function Home() {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { label: 'Localisation', value: 'Cocody, Batafoe' },
+                { label: 'Localisation', value: 'Cocody 150 lgts' },
                 { label: 'Horaires', value: 'Lun-Sam 7h30-18h' },
                 { label: 'Capacite', value: '50 vehicules' },
-                { label: 'Atelier', value: '1500m2' },
+                { label: 'Atelier', value: '1000m2' },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-gray-50 p-4 rounded-xl border border-gray-100">
                   <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">{label}</p>
@@ -393,7 +394,7 @@ export default function Home() {
                     "L'equipe: Mecaniciens qualifies et formes regulierement",
                     "L'equipement: Diagnostic et outillage de pointe",
                     "La qualite: Controle 20 points gratuit avant et apres chaque intervention",
-                    "La securite: Surveillance 24/7 par FAC Securite",
+                    "La securite: Surveillance 24/7",
                   ].map((item) => (
                     <li key={item} className="flex gap-3 text-sm text-gray-700">
                       <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -417,12 +418,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: Users, title: 'Service Conseil Client', desc: "Rappels d'entretien personnalises et conseils pour la longevite de votre vehicule" },
-              { icon: Award, title: 'Controle Qualite', desc: '20 points de controle gratuits avant et apres chaque intervention' },
-              { icon: Shield, title: 'Pieces Certifiees', desc: "Uniquement pieces d'origine concessionnaire avec garantie 2 mois" },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-white/5 border border-white/10 p-7 rounded-2xl hover:border-red-500/50 transition-all">
-                <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mb-5">
+              { icon: Users, title: 'Service Conseil Client', desc: "Rappels d'entretien personnalises et conseils pour la longevite de votre vehicule", blue: false },
+              { icon: Award, title: 'Controle Qualite', desc: '20 points de controle gratuits avant et apres chaque intervention', blue: true },
+              { icon: Shield, title: 'Pieces Certifiees', desc: "Uniquement pieces d'origine concessionnaire avec garantie 1 mois", blue: false },
+            ].map(({ icon: Icon, title, desc, blue }) => (
+              <div key={title} className={`bg-white/5 border border-white/10 p-7 rounded-2xl transition-all ${blue ? 'hover:border-blue-500/50' : 'hover:border-red-500/50'}`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${blue ? 'bg-blue-600' : 'bg-red-600'}`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-black text-xl text-white mb-2">{title}</h3>
@@ -446,7 +447,7 @@ export default function Home() {
                 <Phone className="w-5 h-5" />
                 Appeler: +225 07 59 01 16 16
               </a>
-              <a href="mailto:info@pros-motors-civ.com" className="w-full bg-gray-900 hover:bg-gray-800 text-white font-black py-4 px-6 rounded-xl transition flex items-center justify-center gap-2">
+              <a href="mailto:info@pros-motors-civ.com" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-6 rounded-xl transition flex items-center justify-center gap-2">
                 Email: info@pros-motors-civ.com
               </a>
               <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-3">
@@ -454,10 +455,9 @@ export default function Home() {
                 <div className="space-y-2 text-gray-600">
                   <p className="flex gap-2 items-start text-sm">
                     <MapPin className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-                    <span>Cocody, Batafoe, Abidjan</span>
+                    <span>Cocody 150 lgts, Abidjan</span>
                   </p>
-                  <p className="text-sm text-gray-500 pl-6">500m du groupe scolaire SAFAK</p>
-                  <p className="text-sm text-gray-500 pl-6">Entre lycee technique et hotel Palm Club</p>
+                  <p className="text-sm text-gray-500 pl-6">A 10m du Palm Club</p>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -536,7 +536,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
-                  <span>Cocody, Batafoe, Abidjan</span>
+                  <span>Cocody 150 lgts, Abidjan</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-red-400" />
