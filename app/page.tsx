@@ -17,56 +17,42 @@ export default function Home() {
       description: 'Vidange, freinage, echappement, batterie, eclairage',
       badge: 'Service Express',
       highlight: true,
-      image: 'https://images.unsplash.com/photo-1487973645290-06d7b9b0df54?w=800&h=533&fit=crop&q=80',
-      alt: 'Service rapide de vidange et entretien',
     },
     {
       icon: Wrench,
       name: 'Entretien & Reparation',
       description: 'Revision periodique, diagnostic, SICTA, parallelisme',
       badge: null,
-      image: 'https://images.unsplash.com/photo-1632922267756-9f410af0fa89?w=800&h=533&fit=crop&q=80',
-      alt: 'Diagnostic et reparation automobile',
     },
     {
       icon: Palette,
       name: 'Tolerie & Peinture',
       description: 'Carrosserie, sellerie, peinture brillante et vernie',
       badge: null,
-      image: 'https://images.unsplash.com/photo-1590223923040-b5fab64ac16c?w=800&h=533&fit=crop&q=80',
-      alt: 'Atelier de tolerie et peinture',
     },
     {
       icon: Snowflake,
       name: 'Climatisation',
       description: 'Diagnostic et reparation clim',
       badge: null,
-      image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=533&fit=crop&q=80',
-      alt: 'Service de climatisation automobile',
     },
     {
       icon: Package,
       name: 'Vente Pieces',
       description: "Accessoires, pieces d'origine, commande express",
       badge: null,
-      image: 'https://images.unsplash.com/photo-1488092913552-e7e8a4e96350?w=800&h=533&fit=crop&q=80',
-      alt: 'Vente de pieces detachees',
     },
     {
       icon: Droplets,
       name: 'Station Lavage',
       description: 'Nettoyage complet, lustrage, lavage moteur',
       badge: null,
-      image: 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=800&h=533&fit=crop&q=80',
-      alt: 'Station de lavage professionnel',
     },
     {
       icon: AlertCircle,
       name: 'Assistance 24/7',
       description: 'Depannage et remorquage jour et nuit',
       badge: null,
-      image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=533&fit=crop&q=80',
-      alt: 'Assistance depannage 24h/7j',
     },
   ];
 
@@ -257,36 +243,26 @@ export default function Home() {
             {services.map((service, idx) => {
               const Icon = service.icon;
               return (
-                <div key={idx} className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-gray-200">
-                  {/* Image Container */}
-                  <div className="relative h-48 md:h-56 overflow-hidden bg-gray-200">
-                    <img
-                      src={service.image}
-                      alt={service.alt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    {/* Dark overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
-                    {/* Badge */}
+                <div
+                  key={idx}
+                  className={`p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1 ${
+                    service.highlight
+                      ? 'border-red-500 bg-white shadow-lg shadow-red-50'
+                      : 'border-gray-100 bg-white hover:border-gray-200'
+                  }`}
+                >
+                  <div className="flex items-start justify-between mb-5">
+                    <div className={`p-3 rounded-xl ${service.highlight ? 'bg-red-600' : 'bg-gray-900'}`}>
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
                     {service.badge && (
-                      <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1.5 rounded-full text-sm font-bold">
+                      <span className="px-2.5 py-1 bg-red-600 text-white text-xs font-black rounded-lg tracking-wide">
                         {service.badge}
-                      </div>
+                      </span>
                     )}
                   </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className={`${service.highlight ? 'text-red-600' : 'text-gray-900'}`}>
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-lg font-black text-gray-900">{service.name}</h3>
-                    </div>
-                    <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
-                  </div>
+                  <h3 className="font-black text-xl text-black mb-2">{service.name}</h3>
+                  <p className="text-gray-600 font-medium text-sm leading-relaxed">{service.description}</p>
                 </div>
               );
             })}
