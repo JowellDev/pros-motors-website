@@ -123,3 +123,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hero zoom animation for mobile */
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
