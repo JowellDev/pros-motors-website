@@ -17,7 +17,7 @@ export default function Home() {
       description: 'Vidange, freinage, echappement, batterie, eclairage',
       badge: 'Service Express',
       highlight: true,
-      image: 'https://source.unsplash.com/800x533/?oil-change,mechanic',
+      image: 'https://images.unsplash.com/photo-1487973645290-06d7b9b0df54?w=800&h=533&fit=crop&q=80',
       alt: 'Service rapide de vidange et entretien',
     },
     {
@@ -25,7 +25,7 @@ export default function Home() {
       name: 'Entretien & Reparation',
       description: 'Revision periodique, diagnostic, SICTA, parallelisme',
       badge: null,
-      image: 'https://source.unsplash.com/800x533/?car-diagnostic,scanner',
+      image: 'https://images.unsplash.com/photo-1632922267756-9f410af0fa89?w=800&h=533&fit=crop&q=80',
       alt: 'Diagnostic et reparation automobile',
     },
     {
@@ -33,7 +33,7 @@ export default function Home() {
       name: 'Tolerie & Peinture',
       description: 'Carrosserie, sellerie, peinture brillante et vernie',
       badge: null,
-      image: 'https://source.unsplash.com/800x533/?car-paint,body-shop',
+      image: 'https://images.unsplash.com/photo-1590223923040-b5fab64ac16c?w=800&h=533&fit=crop&q=80',
       alt: 'Atelier de tolerie et peinture',
     },
     {
@@ -41,7 +41,7 @@ export default function Home() {
       name: 'Climatisation',
       description: 'Diagnostic et reparation clim',
       badge: null,
-      image: 'https://source.unsplash.com/800x533/?car-air-conditioning',
+      image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=533&fit=crop&q=80',
       alt: 'Service de climatisation automobile',
     },
     {
@@ -49,7 +49,7 @@ export default function Home() {
       name: 'Vente Pieces',
       description: "Accessoires, pieces d'origine, commande express",
       badge: null,
-      image: 'https://source.unsplash.com/800x533/?auto-parts,spare-parts',
+      image: 'https://images.unsplash.com/photo-1488092913552-e7e8a4e96350?w=800&h=533&fit=crop&q=80',
       alt: 'Vente de pieces detachees',
     },
     {
@@ -57,7 +57,7 @@ export default function Home() {
       name: 'Station Lavage',
       description: 'Nettoyage complet, lustrage, lavage moteur',
       badge: null,
-      image: 'https://source.unsplash.com/800x533/?car-wash,detailing',
+      image: 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=800&h=533&fit=crop&q=80',
       alt: 'Station de lavage professionnel',
     },
     {
@@ -65,7 +65,7 @@ export default function Home() {
       name: 'Assistance 24/7',
       description: 'Depannage et remorquage jour et nuit',
       badge: null,
-      image: 'https://source.unsplash.com/800x533/?tow-truck,roadside',
+      image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=533&fit=crop&q=80',
       alt: 'Assistance depannage 24h/7j',
     },
   ];
