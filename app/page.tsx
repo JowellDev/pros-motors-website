@@ -14,45 +14,66 @@ export default function Home() {
     {
       icon: Zap,
       name: 'Quick Service',
-      description: "Vidange, freinage, echappement, batterie, eclairage",
+      description: 'Vidange, freinage, echappement, batterie, eclairage',
       badge: 'Service Express',
       highlight: true,
+      image: 'https://images.unsplash.com/photo-1487973645290-06d7b9b0df54?w=800&h=533&fit=crop',
+      imageMobile: 'https://images.unsplash.com/photo-1487973645290-06d7b9b0df54?w=600&h=400&fit=crop',
+      alt: 'Service rapide de vidange et entretien automobile chez PROS-MOTORS',
     },
     {
       icon: Wrench,
       name: 'Entretien & Reparation',
       description: 'Revision periodique, diagnostic, SICTA, parallelisme',
       badge: null,
+      image: 'https://images.unsplash.com/photo-1632922267756-9f410af0fa89?w=800&h=533&fit=crop',
+      imageMobile: 'https://images.unsplash.com/photo-1632922267756-9f410af0fa89?w=600&h=400&fit=crop',
+      alt: 'Diagnostic et reparation automobile professionnelle a Abidjan',
     },
     {
       icon: Palette,
       name: 'Tolerie & Peinture',
       description: 'Carrosserie, sellerie, peinture brillante et vernie',
       badge: null,
+      image: 'https://images.unsplash.com/photo-1590223923040-b5fab64ac16c?w=800&h=533&fit=crop',
+      imageMobile: 'https://images.unsplash.com/photo-1590223923040-b5fab64ac16c?w=600&h=400&fit=crop',
+      alt: 'Atelier de tolerie et peinture automobile PROS-MOTORS',
     },
     {
       icon: Snowflake,
       name: 'Climatisation',
       description: 'Diagnostic et reparation clim',
       badge: null,
+      image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=533&fit=crop',
+      imageMobile: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop',
+      alt: 'Service de climatisation et reparation AC automobile',
     },
     {
       icon: Package,
       name: 'Vente Pieces',
       description: "Accessoires, pieces d'origine, commande express",
       badge: null,
+      image: 'https://images.unsplash.com/photo-1488092913552-e7e8a4e96350?w=800&h=533&fit=crop',
+      imageMobile: 'https://images.unsplash.com/photo-1488092913552-e7e8a4e96350?w=600&h=400&fit=crop',
+      alt: 'Vente de pieces detachees automobiles d\'origine',
     },
     {
       icon: Droplets,
       name: 'Station Lavage',
       description: 'Nettoyage complet, lustrage, lavage moteur',
       badge: null,
+      image: 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=800&h=533&fit=crop',
+      imageMobile: 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop',
+      alt: 'Station de lavage auto professionnel et lustrage',
     },
     {
       icon: AlertCircle,
       name: 'Assistance 24/7',
       description: 'Depannage et remorquage jour et nuit',
       badge: null,
+      image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=533&fit=crop',
+      imageMobile: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop',
+      alt: 'Service d\'assistance depannage automobile 24h/7j',
     },
   ];
 
@@ -245,24 +266,40 @@ export default function Home() {
               return (
                 <div
                   key={idx}
-                  className={`p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1 ${
+                  className={`overflow-hidden rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1 ${
                     service.highlight
                       ? 'border-red-500 bg-white shadow-lg shadow-red-50'
                       : 'border-gray-100 bg-white hover:border-gray-200'
                   }`}
                 >
-                  <div className="flex items-start justify-between mb-5">
-                    <div className={`p-3 rounded-xl ${service.highlight ? 'bg-red-600' : 'bg-gray-900'}`}>
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    {service.badge && (
-                      <span className="px-2.5 py-1 bg-red-600 text-white text-xs font-black rounded-lg tracking-wide">
-                        {service.badge}
-                      </span>
-                    )}
+                  {/* Service Image */}
+                  <div className="relative w-full h-48 md:h-56 bg-gray-200 overflow-hidden">
+                    <picture>
+                      <source media="(max-width: 640px)" srcSet={service.imageMobile} type="image/webp" />
+                      <img
+                        src={service.image}
+                        alt={service.alt}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </picture>
                   </div>
-                  <h3 className="font-black text-xl text-black mb-2">{service.name}</h3>
-                  <p className="text-gray-600 font-medium text-sm leading-relaxed">{service.description}</p>
+                  
+                  {/* Service Info */}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className={`p-2.5 rounded-lg ${service.highlight ? 'bg-red-100' : 'bg-gray-100'}`}>
+                        <Icon className={`w-6 h-6 ${service.highlight ? 'text-red-600' : 'text-gray-900'}`} />
+                      </div>
+                      {service.badge && (
+                        <span className="px-2.5 py-1 bg-red-600 text-white text-xs font-black rounded-lg tracking-wide">
+                          {service.badge}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="font-black text-lg text-black mb-1">{service.name}</h3>
+                    <p className="text-gray-600 font-medium text-sm leading-relaxed">{service.description}</p>
+                  </div>
                 </div>
               );
             })}
