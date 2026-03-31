@@ -183,23 +183,16 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-[90vh] flex items-center overflow-hidden"
+        className="relative min-h-[90vh] flex items-center bg-center bg-cover md:bg-fixed overflow-hidden"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1800&q=80')" }}
       >
-        {/* Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1800&q=80"
-        >
-          <source src="https://videos.pexels.com/video-files/3195440/3195440-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/4480985/4480985-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-        </video>
-
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50" />
+        
+        <div 
+          className="absolute inset-0 md:hidden bg-center bg-cover animate-[zoomIn_20s_ease-out_forwards]"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1200&q=80')" }}
+        />
+        <div className="absolute inset-0 md:hidden bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 w-full">
           <div className="max-w-2xl space-y-6">
