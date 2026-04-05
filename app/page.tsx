@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Phone, MapPin, Clock, Wrench, Zap, Palette, Snowflake, Package, Droplets, AlertCircle, CheckCircle, Shield, Users, Award, Heart, ChevronDown, Star, Quote, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,6 +12,37 @@ export default function Home() {
   const [galleryFilter, setGalleryFilter] = useState('Tout');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  const heroSlides = [
+    {
+      url: 'https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1800&q=80',
+      label: 'Atelier moderne',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1800&q=80',
+      label: 'Mecanique generale',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1632922267756-9f410af0fa89?w=1800&q=80',
+      label: 'Diagnostic professionnel',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1590223923040-b5fab64ac16c?w=1800&q=80',
+      label: 'Tolerie & Peinture',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1487973645290-06d7b9b0df54?w=1800&q=80',
+      label: 'Service rapide',
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [heroSlides.length]);
 
   const services = [
     {
@@ -185,21 +216,46 @@ export default function Home() {
         id="home"
         className="relative min-h-[90vh] flex items-center overflow-hidden"
       >
-        {/* Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1800&q=80"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="https://videos.pexels.com/video-files/3391854/3391854-uhd_2560_1440_30fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/4611584/4611584-hd_1920_1080_30fps.mp4" type="video/mp4" />
-        </video>
+        {/* Carousel Slides */}
+        {heroSlides.map((slide, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${idx === heroSlide ? 'opacity-100' : 'opacity-0'}`}
+            style={{ backgroundImage: `url('${slide.url}')` }}
+            aria-hidden={idx !== heroSlide}
+          />
+        ))}
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50" />
+
+        {/* Prev / Next arrows */}
+        <button
+          onClick={() => setHeroSlide((heroSlide - 1 + heroSlides.length) % heroSlides.length)}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/25 border border-white/20 text-white p-2 rounded-full transition backdrop-blur-sm"
+          aria-label="Image precedente"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          onClick={() => setHeroSlide((heroSlide + 1) % heroSlides.length)}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/25 border border-white/20 text-white p-2 rounded-full transition backdrop-blur-sm"
+          aria-label="Image suivante"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+
+        {/* Dot indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {heroSlides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setHeroSlide(idx)}
+              className={`transition-all rounded-full ${idx === heroSlide ? 'bg-red-500 w-8 h-2' : 'bg-white/40 w-2 h-2'}`}
+              aria-label={`Aller a la diapositive ${idx + 1}`}
+            />
+          ))}
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 w-full">
           <div className="max-w-2xl space-y-6">
