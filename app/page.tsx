@@ -24,15 +24,15 @@ export default function Home() {
       label: 'Mecanique generale',
     },
     {
-      url: 'https://images.unsplash.com/photo-1632922267756-9f410af0fa89?w=1800&q=80',
+      url: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1800&q=80',
       label: 'Diagnostic professionnel',
     },
     {
-      url: 'https://images.unsplash.com/photo-1590223923040-b5fab64ac16c?w=1800&q=80',
+      url: 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1800&q=80',
       label: 'Tolerie & Peinture',
     },
     {
-      url: 'https://images.unsplash.com/photo-1487973645290-06d7b9b0df54?w=1800&q=80',
+      url: 'https://images.unsplash.com/photo-1488092913552-e7e8a4e96350?w=1800&q=80',
       label: 'Service rapide',
     },
   ];
