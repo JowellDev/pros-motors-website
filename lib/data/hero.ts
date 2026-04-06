@@ -12,11 +12,11 @@ export const heroSlides = [
 		label: 'Diagnostic professionnel',
 	},
 	{
-		url: 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1800&q=80',
+		url: 'https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=1800&q=80',
 		label: 'Tolerie & Peinture',
 	},
 	{
-		url: 'https://images.unsplash.com/photo-1488092913552-e7e8a4e96350?w=1800&q=80',
+		url: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=1800&q=80',
 		label: 'Service rapide',
 	},
 ]
