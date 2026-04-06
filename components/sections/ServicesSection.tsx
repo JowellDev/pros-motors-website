@@ -1,0 +1,52 @@
+import { services } from '@/lib/data/services'
+
+export function ServicesSection() {
+	return (
+		<section id="services" className="py-20 md:py-28 bg-white">
+			<div className="max-w-7xl mx-auto px-4">
+				<div className="text-center mb-14">
+					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2">
+						Ce que nous faisons
+					</p>
+					<h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Nos Services</h2>
+					<p className="text-gray-500 max-w-xl mx-auto">
+						Tous vos besoins automobiles pris en charge par des techniciens qualifies
+					</p>
+				</div>
+
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{services.map((service, idx) => {
+						const Icon = service.icon
+						return (
+							<div
+								key={idx}
+								className={`p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1 ${
+									service.highlight
+										? 'border-red-500 bg-white shadow-lg shadow-red-50'
+										: 'border-gray-100 bg-white hover:border-gray-200'
+								}`}
+							>
+								<div className="flex items-start justify-between mb-5">
+									<div
+										className={`p-3 rounded-xl ${service.highlight ? 'bg-red-600' : 'bg-gray-900'}`}
+									>
+										<Icon className="w-6 h-6 text-white" />
+									</div>
+									{service.badge && (
+										<span className="px-2.5 py-1 bg-red-600 text-white text-xs font-black rounded-lg tracking-wide">
+											{service.badge}
+										</span>
+									)}
+								</div>
+								<h3 className="font-black text-xl text-black mb-2">{service.name}</h3>
+								<p className="text-gray-600 font-medium text-sm leading-relaxed">
+									{service.description}
+								</p>
+							</div>
+						)
+					})}
+				</div>
+			</div>
+		</section>
+	)
+}
