@@ -1,5 +1,5 @@
 type CarSvgProps = {
-	variant?: 'sedan' | 'wrench' | 'speedometer' | 'suv' | 'sports' | 'engine' | 'tire' | 'gear'
+	variant?: 'sedan' | 'wrench' | 'speedometer' | 'suv' | 'sports' | 'engine' | 'tire' | 'gear' | 'wave'
 	className?: string
 }
 
@@ -388,6 +388,30 @@ export function CarSvg({ variant = 'sedan', className = '' }: CarSvgProps) {
 				/>
 				{/* Center dot */}
 				<circle cx="50" cy="55" r="4" fill="currentColor" opacity="0.5" />
+			</svg>
+		)
+	}
+
+	if (variant === 'wave') {
+		return (
+			<svg
+				viewBox="0 0 1440 40"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				className={className}
+				aria-hidden="true"
+				preserveAspectRatio="none"
+			>
+				<path
+					d="M0 20 Q180 0 360 20 T720 20 T1080 20 T1440 20 L1440 40 L0 40 Z"
+					fill="currentColor"
+					opacity="0.08"
+				/>
+				<path
+					d="M0 25 Q180 10 360 25 T720 25 T1080 25 T1440 25 L1440 40 L0 40 Z"
+					fill="currentColor"
+					opacity="0.05"
+				/>
 			</svg>
 		)
 	}
