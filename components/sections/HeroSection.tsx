@@ -43,20 +43,28 @@ export function HeroSection() {
 
 			<button
 				onClick={goToPrev}
-				className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/25 border border-white/20 text-white p-2 rounded-full transition backdrop-blur-sm"
+				className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/25 border border-white/20 text-white p-2 rounded-full transition backdrop-blur-sm items-center justify-center"
 				aria-label="Image precedente"
 			>
 				<ChevronLeft className="w-6 h-6" />
 			</button>
 			<button
 				onClick={goToNext}
-				className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/25 border border-white/20 text-white p-2 rounded-full transition backdrop-blur-sm"
+				className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/25 border border-white/20 text-white p-2 rounded-full transition backdrop-blur-sm items-center justify-center"
 				aria-label="Image suivante"
 			>
 				<ChevronRight className="w-6 h-6" />
 			</button>
 
-			<div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+			{/* Dots + mobile arrows */}
+			<div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+				<button
+					onClick={goToPrev}
+					className="md:hidden bg-white/10 hover:bg-white/25 border border-white/20 text-white p-1.5 rounded-full transition backdrop-blur-sm"
+					aria-label="Image precedente"
+				>
+					<ChevronLeft className="w-4 h-4" />
+				</button>
 				{heroSlides.map((_, idx) => (
 					<button
 						key={idx}
@@ -65,6 +73,13 @@ export function HeroSection() {
 						aria-label={`Aller a la diapositive ${idx + 1}`}
 					/>
 				))}
+				<button
+					onClick={goToNext}
+					className="md:hidden bg-white/10 hover:bg-white/25 border border-white/20 text-white p-1.5 rounded-full transition backdrop-blur-sm"
+					aria-label="Image suivante"
+				>
+					<ChevronRight className="w-4 h-4" />
+				</button>
 			</div>
 
 			<div className="relative z-10 max-w-7xl mx-auto px-4 py-20 w-full">
