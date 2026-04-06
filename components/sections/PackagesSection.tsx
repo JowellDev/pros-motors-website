@@ -130,12 +130,6 @@ export function PackagesSection() {
 						)
 					})}
 				</div>
-
-				{/* Footer note */}
-				<p className="text-center text-gray-400 text-sm mt-10">
-					Tous les packages incluent une garantie 1 mois sur les pieces concessionnaire.
-					Appelez-nous au <a href="tel:+22507590116" className="text-red-600 font-semibold hover:underline">+225 07 59 01 16 16</a> pour plus d&apos;informations.
-				</p>
 			</div>
 		</section>
 	)
