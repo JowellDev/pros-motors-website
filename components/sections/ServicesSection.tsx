@@ -1,31 +1,15 @@
 import { services } from '@/lib/data/services'
-import { CarSvg } from '@/components/ui/CarSvg'
 
 export function ServicesSection() {
 	return (
-		<section id="services" className="py-20 md:py-28 bg-white overflow-hidden relative">
-			{/* Decorative sports car top-right */}
-			<CarSvg
-				variant="sports"
-				className="absolute -top-2 -right-16 w-80 text-red-600 opacity-[0.04] pointer-events-none select-none rotate-[-8deg]"
-			/>
-			{/* Decorative tire bottom-left */}
-			<CarSvg
-				variant="tire"
-				className="absolute -bottom-12 -left-12 w-48 text-gray-800 opacity-[0.05] pointer-events-none select-none"
-			/>
-
-			<div className="max-w-7xl mx-auto px-4 relative">
-				<div className="text-center mb-14 relative">
-					<CarSvg
-						variant="gear"
-						className="absolute -top-6 left-1/2 -translate-x-1/2 w-36 text-red-600 opacity-[0.05] pointer-events-none select-none"
-					/>
-					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2 relative">
+		<section id="services" className="py-20 md:py-28 bg-white">
+			<div className="max-w-7xl mx-auto px-4">
+				<div className="text-center mb-14">
+					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2">
 						Ce que nous faisons
 					</p>
-					<h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 relative">Nos Services</h2>
-					<p className="text-gray-500 max-w-xl mx-auto relative">
+					<h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Nos Services</h2>
+					<p className="text-gray-500 max-w-xl mx-auto">
 						Tous vos besoins automobiles pris en charge par des techniciens qualifies
 					</p>
 				</div>
@@ -61,13 +45,6 @@ export function ServicesSection() {
 							</div>
 						)
 					})}
-				</div>
-
-				{/* Decorative car strip below grid */}
-				<div className="mt-16 flex items-center justify-center gap-10 opacity-[0.05] pointer-events-none select-none">
-					<CarSvg variant="sports" className="w-64 text-red-600" />
-					<CarSvg variant="engine" className="w-28 text-gray-900" />
-					<CarSvg variant="sports" className="w-64 text-gray-900 scale-x-[-1]" />
 				</div>
 			</div>
 		</section>

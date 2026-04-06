@@ -1,22 +1,10 @@
 import { CheckCircle } from 'lucide-react'
 import { pricing } from '@/lib/data/pricing'
-import { CarSvg } from '@/components/ui/CarSvg'
 
 export function PricingSection() {
 	return (
-		<section id="pricing" className="py-20 md:py-28 bg-gray-50 overflow-hidden relative">
-			{/* Decorative tire top-right */}
-			<CarSvg
-				variant="tire"
-				className="absolute -top-10 -right-10 w-48 text-red-600 opacity-[0.06] pointer-events-none select-none"
-			/>
-			{/* Decorative speedometer bottom-left */}
-			<CarSvg
-				variant="speedometer"
-				className="absolute bottom-8 -left-4 w-40 text-blue-600 opacity-[0.08] pointer-events-none select-none"
-			/>
-
-			<div className="max-w-7xl mx-auto px-4 relative">
+		<section id="pricing" className="py-20 md:py-28 bg-gray-50">
+			<div className="max-w-7xl mx-auto px-4">
 				<div className="text-center mb-14">
 					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2">
 						Transparence totale
@@ -41,13 +29,6 @@ export function PricingSection() {
 					<p className="font-semibold text-sm">
 						Garantie 1 mois incluse sur toutes les pieces du concessionnaire
 					</p>
-				</div>
-
-				{/* Decorative car strip */}
-				<div className="mt-14 flex items-center justify-center gap-8 opacity-[0.05] pointer-events-none select-none">
-					<CarSvg variant="sedan" className="w-52 text-gray-800" />
-					<CarSvg variant="gear" className="w-20 text-red-600" />
-					<CarSvg variant="suv" className="w-56 text-gray-800" />
 				</div>
 			</div>
 		</section>

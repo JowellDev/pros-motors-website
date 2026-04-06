@@ -11,22 +11,17 @@ import { AboutSection } from '@/components/sections/AboutSection'
 import { TrustSection } from '@/components/sections/TrustSection'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { FloatingCallButton } from '@/components/FloatingCallButton'
-import { CarSvg } from '@/components/ui/CarSvg'
 
 export default function Home() {
 	return (
 		<div className="min-h-screen bg-white font-sans">
 			<Header />
 			<HeroSection />
-			<CarSvg variant="wave" className="w-full h-6 text-gray-100 -mt-1" />
 			<ServicesSection />
 			<PackagesSection />
-			<CarSvg variant="wave" className="w-full h-6 text-gray-950 -mb-1 rotate-180" />
 			<BenefitsSection />
-			<CarSvg variant="wave" className="w-full h-6 text-gray-950 -mt-1" />
 			<TestimonialsSection />
 			<GallerySection />
-			<CarSvg variant="wave" className="w-full h-6 text-gray-50 -mt-1" />
 			<PricingSection />
 			<AboutSection />
 			<TrustSection />
