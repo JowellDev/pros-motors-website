@@ -4,10 +4,14 @@ type WaveDividerProps = {
 	flip?: boolean
 }
 
-export function WaveDivider({ topColor = '#ffffff', bottomColor = '#2563eb', flip = false }: WaveDividerProps) {
+export function WaveDivider({
+	topColor = '#ffffff',
+	bottomColor = '#2563eb',
+	flip = false,
+}: Readonly<WaveDividerProps>) {
 	return (
 		<div
-			className="w-full overflow-hidden leading-[0] pointer-events-none"
+			className="w-full overflow-hidden leading-0 pointer-events-none"
 			style={{ backgroundColor: topColor }}
 			aria-hidden="true"
 		>
