@@ -1,4 +1,5 @@
 import { CheckCircle, Phone } from 'lucide-react'
+import { CarSvg } from '@/components/ui/CarSvg'
 
 const packages = [
 	{
@@ -66,17 +67,32 @@ const colorStyles: Record<string, { badge: string; border: string; icon: string;
 
 export function PackagesSection() {
 	return (
-		<section id="packages" className="py-20 md:py-28 bg-white">
-			<div className="max-w-7xl mx-auto px-4">
+		<section id="packages" className="py-20 md:py-28 bg-white overflow-hidden relative">
+			{/* Decorative tire top-left */}
+			<CarSvg
+				variant="tire"
+				className="absolute -top-8 -left-8 w-44 text-gray-900 opacity-[0.04] pointer-events-none select-none"
+			/>
+			{/* Decorative gear bottom-right */}
+			<CarSvg
+				variant="gear"
+				className="absolute -bottom-10 -right-10 w-52 text-red-600 opacity-[0.05] pointer-events-none select-none"
+			/>
+
+			<div className="max-w-7xl mx-auto px-4 relative">
 				{/* Header */}
-				<div className="text-center mb-14">
-					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2">
+				<div className="text-center mb-14 relative">
+					<CarSvg
+						variant="engine"
+						className="absolute top-0 left-1/2 -translate-x-1/2 w-32 text-red-600 opacity-[0.06] pointer-events-none select-none"
+					/>
+					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2 relative">
 						Suivi vehicule
 					</p>
-					<h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 text-balance">
+					<h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 text-balance relative">
 						Nos Packages Mensuels
 					</h2>
-					<p className="text-gray-500 max-w-xl mx-auto text-base leading-relaxed">
+					<p className="text-gray-500 max-w-xl mx-auto text-base leading-relaxed relative">
 						PROS-MOTORS vous offre des packages dans le seul but de bien suivre vos vehicules.
 					</p>
 				</div>

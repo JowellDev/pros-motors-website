@@ -3,13 +3,23 @@ import { CarSvg } from '@/components/ui/CarSvg'
 
 export function ServicesSection() {
 	return (
-		<section id="services" className="py-20 md:py-28 bg-white overflow-hidden">
-			<div className="max-w-7xl mx-auto px-4">
+		<section id="services" className="py-20 md:py-28 bg-white overflow-hidden relative">
+			{/* Decorative sports car top-right */}
+			<CarSvg
+				variant="sports"
+				className="absolute -top-2 -right-16 w-80 text-red-600 opacity-[0.04] pointer-events-none select-none rotate-[-8deg]"
+			/>
+			{/* Decorative tire bottom-left */}
+			<CarSvg
+				variant="tire"
+				className="absolute -bottom-12 -left-12 w-48 text-gray-800 opacity-[0.05] pointer-events-none select-none"
+			/>
+
+			<div className="max-w-7xl mx-auto px-4 relative">
 				<div className="text-center mb-14 relative">
-					{/* Decorative speedometer behind heading */}
 					<CarSvg
-						variant="speedometer"
-						className="absolute -top-4 left-1/2 -translate-x-1/2 w-40 text-red-600 opacity-5 pointer-events-none select-none"
+						variant="gear"
+						className="absolute -top-6 left-1/2 -translate-x-1/2 w-36 text-red-600 opacity-[0.05] pointer-events-none select-none"
 					/>
 					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2 relative">
 						Ce que nous faisons
@@ -54,10 +64,10 @@ export function ServicesSection() {
 				</div>
 
 				{/* Decorative car strip below grid */}
-				<div className="mt-16 flex items-center justify-center gap-8 opacity-[0.06] pointer-events-none select-none">
-					<CarSvg variant="sedan" className="w-56 text-gray-900" />
-					<CarSvg variant="suv" className="w-56 text-gray-900" />
-					<CarSvg variant="sedan" className="w-56 text-gray-900 scale-x-[-1]" />
+				<div className="mt-16 flex items-center justify-center gap-10 opacity-[0.05] pointer-events-none select-none">
+					<CarSvg variant="sports" className="w-64 text-red-600" />
+					<CarSvg variant="engine" className="w-28 text-gray-900" />
+					<CarSvg variant="sports" className="w-64 text-gray-900 scale-x-[-1]" />
 				</div>
 			</div>
 		</section>

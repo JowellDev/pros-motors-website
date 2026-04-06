@@ -4,15 +4,20 @@ import { CarSvg } from '@/components/ui/CarSvg'
 export function BenefitsSection() {
 	return (
 		<section className="py-20 md:py-28 bg-gray-950 text-white overflow-hidden relative">
-			{/* Decorative SUV top-right */}
+			{/* Decorative sports car top-right */}
 			<CarSvg
-				variant="suv"
-				className="absolute top-8 right-0 w-72 text-white opacity-[0.04] pointer-events-none select-none"
+				variant="sports"
+				className="absolute top-8 -right-20 w-96 text-white opacity-[0.03] pointer-events-none select-none"
 			/>
-			{/* Decorative sedan bottom-left */}
+			{/* Decorative engine bottom-left */}
 			<CarSvg
-				variant="sedan"
-				className="absolute bottom-8 left-0 w-72 text-white opacity-[0.04] pointer-events-none select-none scale-x-[-1]"
+				variant="engine"
+				className="absolute -bottom-8 -left-8 w-40 text-red-500 opacity-[0.06] pointer-events-none select-none"
+			/>
+			{/* Decorative gear */}
+			<CarSvg
+				variant="gear"
+				className="absolute top-1/2 -left-16 w-44 text-white opacity-[0.03] pointer-events-none select-none"
 			/>
 
 			<div className="max-w-7xl mx-auto px-4 relative">

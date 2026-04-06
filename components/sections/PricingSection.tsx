@@ -5,14 +5,15 @@ import { CarSvg } from '@/components/ui/CarSvg'
 export function PricingSection() {
 	return (
 		<section id="pricing" className="py-20 md:py-28 bg-gray-50 overflow-hidden relative">
-			{/* Decorative wrench */}
+			{/* Decorative tire top-right */}
 			<CarSvg
-				variant="wrench"
-				className="absolute top-8 right-8 w-32 text-red-600 opacity-[0.07] pointer-events-none select-none"
+				variant="tire"
+				className="absolute -top-10 -right-10 w-48 text-red-600 opacity-[0.06] pointer-events-none select-none"
 			/>
+			{/* Decorative speedometer bottom-left */}
 			<CarSvg
 				variant="speedometer"
-				className="absolute bottom-10 left-6 w-36 text-blue-600 opacity-[0.07] pointer-events-none select-none"
+				className="absolute bottom-8 -left-4 w-40 text-blue-600 opacity-[0.08] pointer-events-none select-none"
 			/>
 
 			<div className="max-w-7xl mx-auto px-4 relative">
@@ -42,11 +43,11 @@ export function PricingSection() {
 					</p>
 				</div>
 
-				{/* Decorative car row */}
-				<div className="mt-14 flex items-end justify-center gap-6 opacity-[0.07] pointer-events-none select-none">
-					<CarSvg variant="sedan" className="w-48 text-gray-800" />
-					<CarSvg variant="suv" className="w-52 text-gray-800" />
-					<CarSvg variant="sedan" className="w-48 text-gray-800 scale-x-[-1]" />
+				{/* Decorative car strip */}
+				<div className="mt-14 flex items-center justify-center gap-8 opacity-[0.05] pointer-events-none select-none">
+					<CarSvg variant="sedan" className="w-52 text-gray-800" />
+					<CarSvg variant="gear" className="w-20 text-red-600" />
+					<CarSvg variant="suv" className="w-56 text-gray-800" />
 				</div>
 			</div>
 		</section>
