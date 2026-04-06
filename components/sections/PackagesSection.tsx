@@ -66,17 +66,17 @@ const colorStyles: Record<string, { badge: string; border: string; icon: string;
 
 export function PackagesSection() {
 	return (
-		<section id="packages" className="py-20 md:py-28 bg-white">
+		<section id="packages" className="py-20 md:py-28 bg-blue-600">
 			<div className="max-w-7xl mx-auto px-4">
 				{/* Header */}
 				<div className="text-center mb-14">
-					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2">
+					<p className="text-blue-200 font-bold text-sm uppercase tracking-widest mb-2">
 						Suivi vehicule
 					</p>
-					<h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 text-balance">
+					<h2 className="text-3xl md:text-4xl font-black text-white mb-4 text-balance">
 						Nos Packages Mensuels
 					</h2>
-					<p className="text-gray-500 max-w-xl mx-auto text-base leading-relaxed">
+					<p className="text-blue-100 max-w-xl mx-auto text-base leading-relaxed">
 						PROS-MOTORS vous offre des packages dans le seul but de bien suivre vos vehicules.
 					</p>
 				</div>

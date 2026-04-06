@@ -11,6 +11,7 @@ import { AboutSection } from '@/components/sections/AboutSection'
 import { TrustSection } from '@/components/sections/TrustSection'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { FloatingCallButton } from '@/components/FloatingCallButton'
+import { WaveDivider } from '@/components/ui/WaveDivider'
 
 export default function Home() {
 	return (
@@ -18,12 +19,16 @@ export default function Home() {
 			<Header />
 			<HeroSection />
 			<ServicesSection />
+			<WaveDivider topColor="#ffffff" bottomColor="#2563eb" />
 			<PackagesSection />
+			<WaveDivider topColor="#2563eb" bottomColor="#030712" />
 			<BenefitsSection />
 			<TestimonialsSection />
 			<GallerySection />
 			<PricingSection />
+			<WaveDivider topColor="#f9fafb" bottomColor="#2563eb" />
 			<AboutSection />
+			<WaveDivider topColor="#2563eb" bottomColor="#ffffff" />
 			<TrustSection />
 			<ContactSection />
 			<Footer />
