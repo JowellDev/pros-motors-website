@@ -1,9 +1,21 @@
 import { benefits } from '@/lib/data/benefits'
+import { CarSvg } from '@/components/ui/CarSvg'
 
 export function BenefitsSection() {
 	return (
-		<section className="py-20 md:py-28 bg-gray-950 text-white">
-			<div className="max-w-7xl mx-auto px-4">
+		<section className="py-20 md:py-28 bg-gray-950 text-white overflow-hidden relative">
+			{/* Decorative SUV top-right */}
+			<CarSvg
+				variant="suv"
+				className="absolute top-8 right-0 w-72 text-white opacity-[0.04] pointer-events-none select-none"
+			/>
+			{/* Decorative sedan bottom-left */}
+			<CarSvg
+				variant="sedan"
+				className="absolute bottom-8 left-0 w-72 text-white opacity-[0.04] pointer-events-none select-none scale-x-[-1]"
+			/>
+
+			<div className="max-w-7xl mx-auto px-4 relative">
 				<div className="text-center mb-14">
 					<p className="text-red-400 font-bold text-sm uppercase tracking-widest mb-2">
 						Nos avantages

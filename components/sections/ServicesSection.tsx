@@ -1,15 +1,21 @@
 import { services } from '@/lib/data/services'
+import { CarSvg } from '@/components/ui/CarSvg'
 
 export function ServicesSection() {
 	return (
-		<section id="services" className="py-20 md:py-28 bg-white">
+		<section id="services" className="py-20 md:py-28 bg-white overflow-hidden">
 			<div className="max-w-7xl mx-auto px-4">
-				<div className="text-center mb-14">
-					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2">
+				<div className="text-center mb-14 relative">
+					{/* Decorative speedometer behind heading */}
+					<CarSvg
+						variant="speedometer"
+						className="absolute -top-4 left-1/2 -translate-x-1/2 w-40 text-red-600 opacity-5 pointer-events-none select-none"
+					/>
+					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2 relative">
 						Ce que nous faisons
 					</p>
-					<h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Nos Services</h2>
-					<p className="text-gray-500 max-w-xl mx-auto">
+					<h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 relative">Nos Services</h2>
+					<p className="text-gray-500 max-w-xl mx-auto relative">
 						Tous vos besoins automobiles pris en charge par des techniciens qualifies
 					</p>
 				</div>
@@ -45,6 +51,13 @@ export function ServicesSection() {
 							</div>
 						)
 					})}
+				</div>
+
+				{/* Decorative car strip below grid */}
+				<div className="mt-16 flex items-center justify-center gap-8 opacity-[0.06] pointer-events-none select-none">
+					<CarSvg variant="sedan" className="w-56 text-gray-900" />
+					<CarSvg variant="suv" className="w-56 text-gray-900" />
+					<CarSvg variant="sedan" className="w-56 text-gray-900 scale-x-[-1]" />
 				</div>
 			</div>
 		</section>

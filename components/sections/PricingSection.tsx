@@ -1,10 +1,21 @@
 import { CheckCircle } from 'lucide-react'
 import { pricing } from '@/lib/data/pricing'
+import { CarSvg } from '@/components/ui/CarSvg'
 
 export function PricingSection() {
 	return (
-		<section id="pricing" className="py-20 md:py-28 bg-gray-50">
-			<div className="max-w-7xl mx-auto px-4">
+		<section id="pricing" className="py-20 md:py-28 bg-gray-50 overflow-hidden relative">
+			{/* Decorative wrench */}
+			<CarSvg
+				variant="wrench"
+				className="absolute top-8 right-8 w-32 text-red-600 opacity-[0.07] pointer-events-none select-none"
+			/>
+			<CarSvg
+				variant="speedometer"
+				className="absolute bottom-10 left-6 w-36 text-blue-600 opacity-[0.07] pointer-events-none select-none"
+			/>
+
+			<div className="max-w-7xl mx-auto px-4 relative">
 				<div className="text-center mb-14">
 					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2">
 						Transparence totale
@@ -29,6 +40,13 @@ export function PricingSection() {
 					<p className="font-semibold text-sm">
 						Garantie 1 mois incluse sur toutes les pieces du concessionnaire
 					</p>
+				</div>
+
+				{/* Decorative car row */}
+				<div className="mt-14 flex items-end justify-center gap-6 opacity-[0.07] pointer-events-none select-none">
+					<CarSvg variant="sedan" className="w-48 text-gray-800" />
+					<CarSvg variant="suv" className="w-52 text-gray-800" />
+					<CarSvg variant="sedan" className="w-48 text-gray-800 scale-x-[-1]" />
 				</div>
 			</div>
 		</section>
