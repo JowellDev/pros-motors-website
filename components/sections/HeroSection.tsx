@@ -23,7 +23,9 @@ export function HeroSection() {
 	}, [])
 
 	const goToPrev = () =>
-		setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
+		setCurrentSlide(
+			(prev) => (prev - 1 + heroSlides.length) % heroSlides.length,
+		)
 	const goToNext = () =>
 		setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
 
@@ -102,12 +104,8 @@ export function HeroSection() {
 						L'entretien auto{' '}
 						<span className="text-primary">sans mauvaise surprise</span>.
 					</h1>
-					<p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl">
-						Diagnostic clair, tarifs transparents et qualité concessionnaire —
-						à prix juste. Votre voiture rendue comme neuve, souvent le jour même.
-					</p>
 
-					<div className="flex flex-wrap gap-2">
+					<div className="flex flex-wrap gap-2 mt-16">
 						{heroTags.map((tag) => (
 							<span
 								key={tag}
@@ -161,7 +159,9 @@ export function HeroSection() {
 							<p className="text-xl font-display font-extrabold text-white">
 								{value}
 							</p>
-							<p className="text-xs font-medium text-white/60 mt-0.5">{label}</p>
+							<p className="text-xs font-medium text-white/60 mt-0.5">
+								{label}
+							</p>
 						</div>
 					))}
 				</div>
