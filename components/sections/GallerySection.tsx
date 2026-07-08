@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { Eye, X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { photos, galleryCategories } from '@/lib/data/gallery'
+import { photos, galleryCategories, beforeAfter } from '@/lib/data/gallery'
+import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider'
 
 export function GallerySection() {
 	const [activeFilter, setActiveFilter] = useState('Tout')
@@ -23,32 +24,50 @@ export function GallerySection() {
 		setCurrentIndex(
 			(prev) => (prev - 1 + filteredPhotos.length) % filteredPhotos.length,
 		)
-
 	const goToNext = () =>
 		setCurrentIndex((prev) => (prev + 1) % filteredPhotos.length)
 
 	return (
 		<>
-			<section className="py-16 md:py-20 bg-gray-50">
+			<section className="py-20 md:py-28 bg-card">
 				<div className="max-w-7xl mx-auto px-4">
 					<div className="text-center mb-12">
-						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-							Notre Atelier en Images
+						<p className="text-primary font-mono text-xs uppercase tracking-[0.2em] mb-3">
+							La preuve en images
+						</p>
+						<h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">
+							Notre atelier & nos réalisations
 						</h2>
-						<p className="text-lg text-gray-600 max-w-2xl mx-auto">
-							Découvrez nos installations modernes
+						<p className="text-muted-foreground max-w-xl mx-auto text-base">
+							Découvrez nos installations modernes et la qualité de nos
+							finitions.
 						</p>
 					</div>
 
-					<div className="flex overflow-x-auto gap-3 mb-8 pb-2 -mx-4 px-4 md:justify-center md:flex-wrap md:overflow-visible">
+					{/* Comparateur avant / après */}
+					<div className="max-w-4xl mx-auto mb-16">
+						<div className="flex items-center justify-between mb-4">
+							<h3 className="font-display font-bold text-lg text-foreground">
+								Tôlerie & peinture — glissez pour comparer
+							</h3>
+						</div>
+						<BeforeAfterSlider
+							url={beforeAfter.url}
+							altBefore={beforeAfter.altBefore}
+							altAfter={beforeAfter.altAfter}
+						/>
+					</div>
+
+					{/* Filtres */}
+					<div className="flex overflow-x-auto gap-3 mb-8 pb-2 -mx-4 px-4 md:justify-center md:flex-wrap md:overflow-visible no-scrollbar">
 						{galleryCategories.map((cat) => (
 							<button
 								key={cat}
 								onClick={() => setActiveFilter(cat)}
-								className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all whitespace-nowrap ${
+								className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all whitespace-nowrap ${
 									activeFilter === cat
-										? 'bg-red-600 text-white shadow-lg'
-										: 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-100'
+										? 'bg-primary text-primary-foreground shadow'
+										: 'bg-background text-foreground border border-border hover:border-primary/40'
 								}`}
 							>
 								{cat}
@@ -56,26 +75,28 @@ export function GallerySection() {
 						))}
 					</div>
 
+					{/* Grille */}
 					<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 						{filteredPhotos.map((photo, idx) => (
-							<div
+							<button
 								key={photo.id}
 								onClick={() => openLightbox(idx)}
-								className="group relative overflow-hidden rounded-lg aspect-square cursor-pointer bg-gray-200"
+								className="group relative overflow-hidden rounded-xl aspect-square cursor-pointer bg-muted text-left"
+								aria-label={`Agrandir : ${photo.alt}`}
 							>
 								<img
 									src={photo.url}
 									alt={photo.alt}
-									className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+									className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
 									loading="lazy"
 								/>
-								<div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 flex items-center justify-center">
-									<Eye className="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+								<div className="absolute inset-0 bg-graphite/0 group-hover:bg-graphite/55 transition-colors duration-300 flex items-center justify-center">
+									<Eye className="w-9 h-9 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 								</div>
-								<div className="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+								<span className="absolute top-3 left-3 bg-primary text-primary-foreground px-2.5 py-1 rounded-full text-xs font-semibold">
 									{photo.category}
-								</div>
-							</div>
+								</span>
+							</button>
 						))}
 					</div>
 				</div>
@@ -83,17 +104,15 @@ export function GallerySection() {
 
 			{lightboxOpen && (
 				<div
-					className="fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center p-4"
-					onClick={(e) =>
-						e.target === e.currentTarget && setLightboxOpen(false)
-					}
+					className="fixed inset-0 z-50 bg-graphite/95 flex flex-col items-center justify-center p-4"
+					onClick={(e) => e.target === e.currentTarget && setLightboxOpen(false)}
 				>
 					<button
 						onClick={() => setLightboxOpen(false)}
-						className="absolute top-4 md:top-6 right-4 md:right-6 bg-red-600 hover:bg-red-700 text-white p-2 md:p-3 rounded-full transition-colors"
+						className="absolute top-4 md:top-6 right-4 md:right-6 bg-primary hover:bg-primary/90 text-primary-foreground p-2.5 md:p-3 rounded-full transition-colors"
 						aria-label="Fermer"
 					>
-						<X className="w-6 h-6 md:w-7 h-7" />
+						<X className="w-6 h-6" />
 					</button>
 
 					<div className="flex flex-col items-center gap-4 max-w-4xl w-full">
@@ -103,10 +122,10 @@ export function GallerySection() {
 							className="max-h-[70vh] md:max-h-[80vh] w-full object-contain rounded-lg"
 						/>
 						<div className="text-center w-full">
-							<p className="text-white text-base md:text-lg font-medium mb-2">
+							<p className="text-white text-base md:text-lg font-medium mb-1">
 								{filteredPhotos[currentIndex].caption}
 							</p>
-							<p className="text-gray-400 text-sm md:text-base">
+							<p className="text-white/50 text-sm">
 								{currentIndex + 1} / {filteredPhotos.length}
 							</p>
 						</div>
@@ -114,17 +133,17 @@ export function GallerySection() {
 
 					<button
 						onClick={goToPrev}
-						className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 bg-gray-700/50 hover:bg-gray-700 text-white p-2 md:p-3 rounded-full transition-colors"
-						aria-label="Photo precedente"
+						className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-2.5 md:p-3 rounded-full transition-colors"
+						aria-label="Photo précédente"
 					>
-						<ChevronLeft className="w-6 h-6 md:w-8 h-8" />
+						<ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
 					</button>
 					<button
 						onClick={goToNext}
-						className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 bg-gray-700/50 hover:bg-gray-700 text-white p-2 md:p-3 rounded-full transition-colors"
+						className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-2.5 md:p-3 rounded-full transition-colors"
 						aria-label="Photo suivante"
 					>
-						<ChevronRight className="w-6 h-6 md:w-8 h-8" />
+						<ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
 					</button>
 
 					<div className="absolute bottom-6 flex gap-2 items-center justify-center">
@@ -132,12 +151,12 @@ export function GallerySection() {
 							<button
 								key={idx}
 								onClick={() => setCurrentIndex(idx)}
-								className={`transition-all ${
+								className={`transition-all rounded-full ${
 									idx === currentIndex
-										? 'bg-red-600 w-8 h-1.5'
-										: 'bg-gray-500 w-1.5 h-1.5 rounded-full'
+										? 'bg-primary w-8 h-1.5'
+										: 'bg-white/40 w-1.5 h-1.5'
 								}`}
-								aria-label={`Aller a la photo ${idx + 1}`}
+								aria-label={`Aller à la photo ${idx + 1}`}
 							/>
 						))}
 					</div>

@@ -5,7 +5,7 @@ export const heroSlides = [
 	},
 	{
 		url: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1800&q=80',
-		label: 'Mecanique generale',
+		label: 'Mécanique générale',
 	},
 	{
 		url: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1800&q=80',
@@ -13,7 +13,7 @@ export const heroSlides = [
 	},
 	{
 		url: 'https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=1800&q=80',
-		label: 'Tolerie & Peinture',
+		label: 'Tôlerie & peinture',
 	},
 	{
 		url: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=1800&q=80',
@@ -21,11 +21,18 @@ export const heroSlides = [
 	},
 ]
 
-export const heroStats = [
-	{ value: '1000m2', label: "d'Atelier" },
-	{ value: '6j/7', label: 'Ouvert' },
-	{ value: '7h30-18h', label: 'Horaires' },
-	{ value: '24/7', label: 'Depannage' },
+// Barre de confiance sous le hero — faits vérifiables uniquement
+export const heroTrust = [
+	{ value: '1500 m²', label: "d'atelier moderne" },
+	{ value: 'Jour même', label: 'Quick Service' },
+	{ value: '2 mois', label: 'de garantie' },
+	{ value: '24/7', label: 'assistance & dépannage' },
 ]
 
-export const heroTags = ['Mecanique', 'Electricite', 'Climatisation', 'Tolerie', 'Peinture']
+export const heroTags = [
+	'Mécanique',
+	'Électricité',
+	'Climatisation',
+	'Tôlerie',
+	'Peinture',
+]
