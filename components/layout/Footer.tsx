@@ -1,6 +1,7 @@
 'use client'
 
-import { Phone, MapPin, Clock, Wrench, Mail, MessageCircle } from 'lucide-react'
+import Image from 'next/image'
+import { Phone, MapPin, Clock, Mail, MessageCircle } from 'lucide-react'
 import { site } from '@/lib/data/site'
 
 const footerNav = [
@@ -30,13 +31,14 @@ export function Footer() {
 			<div className="max-w-7xl mx-auto px-4">
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 					<div className="sm:col-span-2 lg:col-span-1">
-						<div className="flex items-center gap-2.5 mb-4">
-							<span className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center">
-								<Wrench className="w-5 h-5 text-white" />
-							</span>
-							<span className="font-display font-extrabold text-lg">
-								PROS-MOTORS C.I
-							</span>
+						<div className="inline-flex items-center bg-cream rounded-xl px-3 py-2 mb-4">
+							<Image
+								src="/img/logo.png"
+								alt="PROS-MOTORS Garage Automobile"
+								width={220}
+								height={147}
+								className="h-12 w-auto object-contain"
+							/>
 						</div>
 						<p className="text-white/60 text-sm leading-relaxed mb-5 max-w-xs">
 							Votre garage de confiance à Cocody. Qualité concessionnaire,

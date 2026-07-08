@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X, Phone, Wrench, Star, MessageCircle } from 'lucide-react'
+import Image from 'next/image'
+import { Menu, X, Phone, Star, MessageCircle } from 'lucide-react'
 import { site } from '@/lib/data/site'
 
 const navLinks = [
@@ -40,18 +41,17 @@ export function Header() {
 			<div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
 				<button
 					onClick={() => handleScroll('home')}
-					className="flex items-center gap-2.5 group"
+					className="flex items-center"
 					aria-label="Retour en haut"
 				>
-					<span className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center shadow-sm ring-1 ring-primary/20 group-hover:ring-secondary transition">
-						<Wrench className="w-5 h-5 text-white" />
-					</span>
-					<span className="font-display font-extrabold text-lg text-foreground tracking-tight leading-none">
-						PROS-MOTORS
-						<span className="block text-[10px] font-mono font-medium tracking-[0.3em] text-muted-foreground">
-							C.I · COCODY
-						</span>
-					</span>
+					<Image
+						src="/img/logo.png"
+						alt="PROS-MOTORS Garage Automobile"
+						width={220}
+						height={147}
+						priority
+						className="h-14 md:h-16 w-auto object-contain"
+					/>
 				</button>
 
 				<nav className="hidden lg:flex items-center gap-7">

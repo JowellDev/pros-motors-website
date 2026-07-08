@@ -7,6 +7,7 @@ import { ProcessSection } from '@/components/sections/ProcessSection'
 import { PricingSection } from '@/components/sections/PricingSection'
 import { GallerySection } from '@/components/sections/GallerySection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
+import { ClientsSection } from '@/components/sections/ClientsSection'
 import { AboutSection } from '@/components/sections/AboutSection'
 import { BenefitsSection } from '@/components/sections/BenefitsSection'
 import { FaqSection } from '@/components/sections/FaqSection'
@@ -24,6 +25,7 @@ export default function Home() {
 			<PricingSection />
 			<GallerySection />
 			<TestimonialsSection />
+			<ClientsSection />
 			<AboutSection />
 			<BenefitsSection />
 			<FaqSection />
