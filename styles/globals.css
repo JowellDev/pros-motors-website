@@ -3,80 +3,109 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+  PROS-MOTORS — thème "atelier chaleureux"
+  ────────────────────────────────────────
+  Marque = ROUGE + BLEU, réchauffés. Le thème est défini UNE seule fois :
+  1. Les couleurs de marque brutes (source unique) dans :root.
+  2. Les tokens sémantiques shadcn (--background, --primary…) en dérivent.
+  3. @theme inline expose les deux à Tailwind → utilitaires bg-brand-red,
+     bg-navy, text-graphite… ET bg-primary, bg-card, text-muted-foreground.
+  Le site s'engage sur un thème clair (marque "plein jour"). Le bloc .dark
+  reste cohérent au cas où un sélecteur de thème serait ajouté plus tard.
+*/
 :root {
-	--background: oklch(1 0 0);
-	--foreground: oklch(0.145 0 0);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.145 0 0);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.577 0.245 27.325);
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.49 0.246 264.39);
-	--secondary-foreground: oklch(0.985 0 0);
-	--muted: oklch(0.97 0 0);
-	--muted-foreground: oklch(0.556 0 0);
-	--accent: oklch(0.49 0.246 264.39);
-	--accent-foreground: oklch(0.985 0 0);
-	--destructive: oklch(0.577 0.245 27.325);
-	--destructive-foreground: oklch(0.985 0 0);
-	--border: oklch(0.922 0 0);
-	--input: oklch(0.922 0 0);
-	--ring: oklch(0.577 0.245 27.325);
-	--chart-1: oklch(0.646 0.222 41.116);
-	--chart-2: oklch(0.6 0.118 184.704);
-	--chart-3: oklch(0.398 0.07 227.392);
-	--chart-4: oklch(0.828 0.189 84.429);
-	--chart-5: oklch(0.769 0.188 70.08);
-	--radius: 0.625rem;
-	--sidebar: oklch(0.985 0 0);
-	--sidebar-foreground: oklch(0.145 0 0);
-	--sidebar-primary: oklch(0.205 0 0);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.97 0 0);
-	--sidebar-accent-foreground: oklch(0.205 0 0);
-	--sidebar-border: oklch(0.922 0 0);
-	--sidebar-ring: oklch(0.708 0 0);
+	/* — Couleurs de marque (source unique de vérité) — */
+	--brand-red: #cb3327; /* rouge brique — accent principal / CTA */
+	--brand-red-dark: #a5271c;
+	--brand-red-light: #e2483b;
+	--brand-blue: #1d4e89; /* bleu marine — structure / secondaire */
+	--brand-blue-dark: #143b6b;
+	--brand-blue-light: #3a6bab;
+	--navy: #13294a; /* bleu très sombre — sections sombres (ex-noir) */
+	--graphite: #221c17; /* encre chaude */
+	--cream: #fbf8f1;
+	--concrete: #f4efe5;
+	--sand: #efe2c8;
+	--gold: #e0a72e; /* étoiles d'avis uniquement */
+	--whatsapp: #1fa855;
+	--whatsapp-dark: #178f47;
+
+	/* — Tokens sémantiques (shadcn), dérivés de la marque — */
+	--background: var(--concrete);
+	--foreground: var(--graphite);
+	--card: var(--cream);
+	--card-foreground: var(--graphite);
+	--popover: var(--cream);
+	--popover-foreground: var(--graphite);
+	--primary: var(--brand-red);
+	--primary-foreground: #fff6f0;
+	--secondary: var(--brand-blue);
+	--secondary-foreground: #f2f6fc;
+	--muted: #ece4d5;
+	--muted-foreground: #6e6355;
+	--accent: var(--sand);
+	--accent-foreground: #7a2c14;
+	--destructive: var(--brand-red-dark);
+	--destructive-foreground: #fff6f0;
+	--border: #e2d9c7;
+	--input: #e2d9c7;
+	--ring: var(--brand-red);
+	--chart-1: var(--brand-red);
+	--chart-2: var(--brand-blue);
+	--chart-3: var(--gold);
+	--chart-4: #2f7d6b;
+	--chart-5: var(--brand-red-dark);
+	--radius: 0.9rem;
+	--sidebar: var(--cream);
+	--sidebar-foreground: var(--graphite);
+	--sidebar-primary: var(--brand-red);
+	--sidebar-primary-foreground: #fff6f0;
+	--sidebar-accent: var(--sand);
+	--sidebar-accent-foreground: #7a2c14;
+	--sidebar-border: var(--border);
+	--sidebar-ring: var(--brand-red);
 }
 
 .dark {
-	--background: oklch(0.145 0 0);
-	--foreground: oklch(0.985 0 0);
-	--card: oklch(0.145 0 0);
-	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.145 0 0);
-	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.985 0 0);
-	--primary-foreground: oklch(0.205 0 0);
-	--secondary: oklch(0.269 0 0);
-	--secondary-foreground: oklch(0.985 0 0);
-	--muted: oklch(0.269 0 0);
-	--muted-foreground: oklch(0.708 0 0);
-	--accent: oklch(0.269 0 0);
-	--accent-foreground: oklch(0.985 0 0);
-	--destructive: oklch(0.396 0.141 25.723);
-	--destructive-foreground: oklch(0.637 0.237 25.331);
-	--border: oklch(0.269 0 0);
-	--input: oklch(0.269 0 0);
-	--ring: oklch(0.439 0 0);
-	--chart-1: oklch(0.488 0.243 264.376);
-	--chart-2: oklch(0.696 0.17 162.48);
-	--chart-3: oklch(0.769 0.188 70.08);
-	--chart-4: oklch(0.627 0.265 303.9);
-	--chart-5: oklch(0.645 0.246 16.439);
-	--sidebar: oklch(0.205 0 0);
-	--sidebar-foreground: oklch(0.985 0 0);
-	--sidebar-primary: oklch(0.488 0.243 264.376);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.269 0 0);
-	--sidebar-accent-foreground: oklch(0.985 0 0);
-	--sidebar-border: oklch(0.269 0 0);
-	--sidebar-ring: oklch(0.439 0 0);
+	/* Fallback sombre cohérent (thème non activé par défaut).
+	   Les couleurs de marque restent stables ; seuls les tokens
+	   sémantiques basculent sur une base bleu marine. */
+	--background: #0f2138;
+	--foreground: #f2ede3;
+	--card: #16294a;
+	--card-foreground: #f2ede3;
+	--popover: #142743;
+	--popover-foreground: #f2ede3;
+	--primary: var(--brand-red-light);
+	--primary-foreground: #fff6f0;
+	--secondary: var(--brand-blue-light);
+	--secondary-foreground: #eaf1fb;
+	--muted: #1a3252;
+	--muted-foreground: #aab6c8;
+	--accent: #1c3557;
+	--accent-foreground: var(--brand-red-light);
+	--destructive: var(--brand-red-light);
+	--destructive-foreground: #0f2138;
+	--border: #23405f;
+	--input: #23405f;
+	--ring: var(--brand-red-light);
+	--sidebar: #142743;
+	--sidebar-foreground: #f2ede3;
+	--sidebar-primary: var(--brand-red-light);
+	--sidebar-primary-foreground: #fff6f0;
+	--sidebar-accent: #1c3557;
+	--sidebar-accent-foreground: var(--brand-red-light);
+	--sidebar-border: #23405f;
+	--sidebar-ring: var(--brand-red-light);
 }
 
 @theme inline {
-	--font-sans: 'Geist', 'Geist Fallback';
-	--font-mono: 'Geist Mono', 'Geist Mono Fallback';
+	--font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+	--font-display: var(--font-archivo), var(--font-hanken), sans-serif;
+	--font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+	/* Tokens sémantiques → utilitaires bg-primary, text-muted-foreground… */
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--color-card: var(--card);
@@ -101,10 +130,28 @@
 	--color-chart-3: var(--chart-3);
 	--color-chart-4: var(--chart-4);
 	--color-chart-5: var(--chart-5);
+
+	/* Couleurs de marque → utilitaires bg-brand-red, bg-navy, text-gold… */
+	--color-brand-red: var(--brand-red);
+	--color-brand-red-dark: var(--brand-red-dark);
+	--color-brand-red-light: var(--brand-red-light);
+	--color-brand-blue: var(--brand-blue);
+	--color-brand-blue-dark: var(--brand-blue-dark);
+	--color-brand-blue-light: var(--brand-blue-light);
+	--color-navy: var(--navy);
+	--color-graphite: var(--graphite);
+	--color-cream: var(--cream);
+	--color-concrete: var(--concrete);
+	--color-sand: var(--sand);
+	--color-gold: var(--gold);
+	--color-whatsapp: var(--whatsapp);
+	--color-whatsapp-dark: var(--whatsapp-dark);
+
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
 	--radius-xl: calc(var(--radius) + 4px);
+
 	--color-sidebar: var(--sidebar);
 	--color-sidebar-foreground: var(--sidebar-foreground);
 	--color-sidebar-primary: var(--sidebar-primary);
@@ -122,14 +169,42 @@
 	body {
 		@apply bg-background text-foreground;
 	}
+	h1,
+	h2,
+	h3,
+	h4 {
+		font-family: var(--font-display);
+		letter-spacing: -0.02em;
+		text-wrap: balance;
+	}
 }
 
-/* Hero zoom animation for mobile */
+/* Masque la scrollbar sur les rubans horizontaux (mobile) */
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hero zoom animation */
 @keyframes zoomIn {
 	from {
 		transform: scale(1);
 	}
 	to {
-		transform: scale(1.1);
+		transform: scale(1.08);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
 	}
 }

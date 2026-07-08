@@ -1,95 +1,206 @@
-import { Phone, MapPin, Clock } from 'lucide-react'
+'use client'
+
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { toast } from 'sonner'
+import { Phone, MapPin, Clock, Mail, MessageCircle, Send } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { site } from '@/lib/data/site'
+
+const schema = z.object({
+	name: z.string().min(2, 'Merci d’indiquer votre nom.'),
+	phone: z
+		.string()
+		.min(8, 'Numéro de téléphone invalide.')
+		.regex(/^[\d\s+()-]+$/, 'Numéro de téléphone invalide.'),
+	message: z.string().min(5, 'Décrivez brièvement votre besoin.'),
+})
+
+type FormValues = z.infer<typeof schema>
 
 export function ContactSection() {
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors, isSubmitting },
+	} = useForm<FormValues>({ resolver: zodResolver(schema) })
+
+	const onSubmit = (data: FormValues) => {
+		const text = `Bonjour PROS-MOTORS,\nNom : ${data.name}\nTéléphone : ${data.phone}\n\n${data.message}`
+		window.open(site.whatsappMessage(text), '_blank', 'noopener,noreferrer')
+		toast.success('Votre message est prêt sur WhatsApp — on vous répond vite !')
+		reset()
+	}
+
 	return (
-		<section id="contact" className="py-20 md:py-28 bg-gray-50">
+		<section id="contact" className="py-20 md:py-28 bg-card">
 			<div className="max-w-7xl mx-auto px-4">
 				<div className="text-center mb-14">
-					<p className="text-red-600 font-bold text-sm uppercase tracking-widest mb-2">
+					<p className="text-primary font-mono text-xs uppercase tracking-[0.2em] mb-3">
 						Parlons-nous
 					</p>
-					<h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Contactez-Nous</h2>
+					<h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">
+						Contactez-nous
+					</h2>
+					<p className="text-muted-foreground max-w-xl mx-auto text-base">
+						Un devis, une question, un rendez-vous ? La réponse la plus rapide,
+						c’est par WhatsApp ou par téléphone.
+					</p>
 				</div>
 
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+					{/* Colonne infos */}
 					<div className="space-y-4">
-						<a
-							href="tel:+22507590116"
-							className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 text-white font-black py-4 px-6 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2"
-						>
-							<Phone className="w-5 h-5" />
-							Appeler: +225 07 59 01 16 16
-						</a>
-						<a
-							href="mailto:info@pros-motors-civ.com"
-							className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-6 rounded-xl transition flex items-center justify-center gap-2"
-						>
-							Email: info@pros-motors-civ.com
-						</a>
+						<div className="grid sm:grid-cols-2 gap-4">
+							<a
+								href={site.whatsappMessage(
+									'Bonjour PROS-MOTORS, je souhaite un renseignement.',
+								)}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex flex-col gap-2 bg-whatsapp hover:bg-whatsapp-dark text-white p-5 rounded-2xl transition shadow-sm"
+							>
+								<MessageCircle className="w-6 h-6" />
+								<span className="font-semibold">WhatsApp</span>
+								<span className="text-white/80 text-sm">Réponse rapide</span>
+							</a>
+							<a
+								href={site.phoneHref}
+								className="flex flex-col gap-2 bg-primary hover:bg-primary/90 text-primary-foreground p-5 rounded-2xl transition shadow-sm"
+							>
+								<Phone className="w-6 h-6" />
+								<span className="font-semibold">Appeler</span>
+								<span className="text-white/80 text-sm">{site.phoneDisplay}</span>
+							</a>
+						</div>
 
-						<div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-3">
-							<h3 className="font-black text-gray-900">Localisation</h3>
-							<div className="space-y-2 text-gray-600">
-								<p className="flex gap-2 items-start text-sm">
-									<MapPin className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-									<span>Cocody 150 lgts, Abidjan</span>
-								</p>
-								<p className="text-sm text-gray-500 pl-6">A 10m du Palm Club</p>
+						<div className="bg-background p-5 rounded-2xl border border-border space-y-4">
+							<div className="flex gap-3">
+								<MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+								<div>
+									<p className="font-semibold text-foreground text-sm">
+										{site.address}
+									</p>
+									<p className="text-muted-foreground text-sm">
+										{site.addressDetail}
+									</p>
+								</div>
+							</div>
+							<div className="flex gap-3">
+								<Clock className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+								<div>
+									<p className="font-semibold text-foreground text-sm">Horaires</p>
+									<p className="text-muted-foreground text-sm">{site.hours}</p>
+								</div>
+							</div>
+							<div className="flex gap-3">
+								<Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+								<div className="min-w-0">
+									<p className="font-semibold text-foreground text-sm">Email</p>
+									<a
+										href={site.emailHref}
+										className="text-secondary hover:underline text-sm break-all"
+									>
+										{site.email}
+									</a>
+								</div>
 							</div>
 						</div>
 
-						<div className="grid grid-cols-2 gap-4">
-							<div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-								<h3 className="font-black text-gray-900 text-sm mb-1">Horaires</h3>
-								<p className="text-gray-600 text-sm flex items-center gap-1.5">
-									<Clock className="w-4 h-4 text-blue-600" />
-									Lun-Sam 7h30-18h
-								</p>
-							</div>
-							<div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-								<h3 className="font-black text-gray-900 text-sm mb-1">Email</h3>
-								<a
-									href="mailto:info@pros-motors-civ.com"
-									className="text-blue-600 hover:text-blue-700 text-xs underline break-all"
-								>
-									info@pros-motors-civ.com
-								</a>
-							</div>
+						{/* Carte */}
+						<div className="rounded-2xl overflow-hidden border border-border h-56">
+							<iframe
+								title="Localisation PROS-MOTORS — Cocody 150 lgts"
+								src={site.mapEmbed}
+								className="w-full h-full"
+								loading="lazy"
+								referrerPolicy="no-referrer-when-downgrade"
+							/>
 						</div>
 					</div>
 
-					<div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-						<h3 className="font-black text-xl text-gray-900 mb-6">Formulaire de Contact</h3>
-						<form className="space-y-4">
+					{/* Formulaire */}
+					<div className="bg-background p-6 sm:p-8 rounded-2xl border border-border shadow-sm">
+						<h3 className="font-display font-bold text-xl text-foreground mb-1">
+							Demander un devis gratuit
+						</h3>
+						<p className="text-muted-foreground text-sm mb-6">
+							Remplissez ce formulaire, il prépare votre message sur WhatsApp.
+						</p>
+						<form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
 							<div>
-								<label className="block text-sm font-bold text-gray-700 mb-1.5">
+								<label
+									htmlFor="name"
+									className="block text-sm font-semibold text-foreground mb-1.5"
+								>
 									Nom complet
 								</label>
-								<Input placeholder="Votre nom" className="w-full rounded-xl" />
+								<Input
+									id="name"
+									placeholder="Votre nom"
+									className="rounded-xl bg-card"
+									aria-invalid={!!errors.name}
+									{...register('name')}
+								/>
+								{errors.name && (
+									<p className="text-primary text-xs mt-1.5">
+										{errors.name.message}
+									</p>
+								)}
 							</div>
 							<div>
-								<label className="block text-sm font-bold text-gray-700 mb-1.5">
-									Telephone
+								<label
+									htmlFor="phone"
+									className="block text-sm font-semibold text-foreground mb-1.5"
+								>
+									Téléphone
 								</label>
 								<Input
-									placeholder="+225 XX XX XX XX XX"
+									id="phone"
 									type="tel"
-									className="w-full rounded-xl"
+									placeholder="+225 XX XX XX XX XX"
+									className="rounded-xl bg-card"
+									aria-invalid={!!errors.phone}
+									{...register('phone')}
 								/>
+								{errors.phone && (
+									<p className="text-primary text-xs mt-1.5">
+										{errors.phone.message}
+									</p>
+								)}
 							</div>
 							<div>
-								<label className="block text-sm font-bold text-gray-700 mb-1.5">Message</label>
+								<label
+									htmlFor="message"
+									className="block text-sm font-semibold text-foreground mb-1.5"
+								>
+									Votre besoin
+								</label>
 								<Textarea
-									placeholder="Decrivez votre besoin..."
+									id="message"
 									rows={4}
-									className="w-full rounded-xl"
+									placeholder="Ex : vidange + contrôle climatisation sur une Corolla…"
+									className="rounded-xl bg-card"
+									aria-invalid={!!errors.message}
+									{...register('message')}
 								/>
+								{errors.message && (
+									<p className="text-primary text-xs mt-1.5">
+										{errors.message.message}
+									</p>
+								)}
 							</div>
-							<Button className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 text-white font-black py-3 rounded-xl shadow-md">
-								Envoyer le Message
+							<Button
+								type="submit"
+								disabled={isSubmitting}
+								className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 rounded-xl shadow-sm h-auto"
+							>
+								<Send className="w-4 h-4" />
+								Envoyer ma demande
 							</Button>
 						</form>
 					</div>

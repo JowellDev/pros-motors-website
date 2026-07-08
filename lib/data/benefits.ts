@@ -1,40 +1,52 @@
-import { Heart, Zap, CheckCircle, Shield, Award } from 'lucide-react'
+import {
+	Wallet,
+	Zap,
+	BadgeCheck,
+	ClipboardCheck,
+	LifeBuoy,
+	Users,
+} from 'lucide-react'
 
+// Fusion « Avantages » + « Engagements qualité » — sans doublons.
 export const benefits = [
 	{
-		icon: Heart,
-		title: 'Prix Competitifs',
-		description: 'Moins cher que les concessionnaires',
-		color: 'red',
+		icon: Wallet,
+		title: 'Des prix justes',
+		description:
+			'Moins cher que le concessionnaire, avec des tarifs affichés clairement.',
+		accent: 'red',
 	},
 	{
 		icon: Zap,
-		title: 'Rapidite',
-		description: 'Quick Service disponible',
-		color: 'blue',
+		title: 'La rapidité',
+		description: 'Quick Service : votre véhicule rendu souvent le jour même.',
+		accent: 'blue',
 	},
 	{
-		icon: CheckCircle,
-		title: "Pieces d'Origine",
-		description: 'Directement du concessionnaire',
-		color: 'red',
+		icon: BadgeCheck,
+		title: "Pièces d'origine",
+		description:
+			'Directement du concessionnaire, garanties 2 mois sur chaque pièce.',
+		accent: 'red',
 	},
 	{
-		icon: Shield,
-		title: 'Securite 24/7',
-		description: 'Surveillance 24/7',
-		color: 'blue',
+		icon: ClipboardCheck,
+		title: 'Contrôle 20 points',
+		description:
+			'Un contrôle qualité gratuit avant et après chaque intervention.',
+		accent: 'blue',
 	},
 	{
-		icon: Award,
-		title: 'Garantie 1 Mois',
-		description: 'Sur toutes pieces concessionnaire',
-		color: 'red',
+		icon: LifeBuoy,
+		title: 'Assistance 24/7',
+		description: 'Dépannage et remorquage, de jour comme de nuit.',
+		accent: 'red',
 	},
 	{
-		icon: CheckCircle,
-		title: 'Controle Qualite',
-		description: '20 points de controle gratuits',
-		color: 'blue',
+		icon: Users,
+		title: 'Conseil & suivi',
+		description:
+			"Des rappels d'entretien personnalisés pour la longévité de votre véhicule.",
+		accent: 'blue',
 	},
 ]
