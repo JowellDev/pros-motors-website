@@ -25,8 +25,8 @@ export const metadata: Metadata = {
 	description:
 		"PROS-MOTORS C.I SARL est votre garage de confiance à Abidjan. Situé à Cocody 150 lgts — à 10m du Palm Club, nous offrons des services complets d'entretien et de réparation automobile : mécanique générale, électricité, climatisation, tôlerie-peinture et vente de pièces détachées. Notre atelier moderne de 1500 m² garantit rapidité, professionnalisme et prix compétitifs. Pièces d'origine concessionnaire, Quick Service, assistance 24/7 et garantie 2 mois. Ouverts du lundi au samedi de 7h30 à 18h.",
 	icons: {
-		icon: '/favicon.svg',
-		apple: '/favicon.svg',
+		icon: '/img/logo.png',
+		apple: '/img/logo.png',
 	},
 }
 
