@@ -2,8 +2,7 @@
 
 import { useState } from 'react'
 import { Eye, X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { photos, galleryCategories, beforeAfter } from '@/lib/data/gallery'
-import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider'
+import { photos, galleryCategories } from '@/lib/data/gallery'
 
 export function GallerySection() {
 	const [activeFilter, setActiveFilter] = useState('Tout')
@@ -42,20 +41,6 @@ export function GallerySection() {
 							Découvrez nos installations modernes et la qualité de nos
 							finitions.
 						</p>
-					</div>
-
-					{/* Comparateur avant / après */}
-					<div className="max-w-4xl mx-auto mb-16">
-						<div className="flex items-center justify-between mb-4">
-							<h3 className="font-display font-bold text-lg text-foreground">
-								Tôlerie & peinture — glissez pour comparer
-							</h3>
-						</div>
-						<BeforeAfterSlider
-							url={beforeAfter.url}
-							altBefore={beforeAfter.altBefore}
-							altAfter={beforeAfter.altAfter}
-						/>
 					</div>
 
 					{/* Filtres */}

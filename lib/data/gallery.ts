@@ -1,75 +1,68 @@
-// ⚠️ Photos de démonstration (stock) — à remplacer par de vraies photos de
-// l'atelier, de l'équipe et des réalisations dès qu'elles sont disponibles.
+// Photos réelles de l'atelier PROS-MOTORS (public/img).
 export const photos = [
 	{
 		id: 1,
-		url: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=800&fit=crop',
+		url: '/img/img6jpeg.jpeg',
 		category: 'Atelier',
-		alt: "Vue générale de l'atelier PROS-MOTORS",
-		caption: 'Notre atelier moderne de 1500 m² équipé des dernières technologies',
+		alt: "Vue générale de l'atelier PROS-MOTORS et des véhicules en cours d'intervention",
+		caption: 'Notre atelier : plusieurs véhicules pris en charge simultanément',
 	},
 	{
 		id: 2,
-		url: 'https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800&h=800&fit=crop',
-		category: 'Atelier',
-		alt: 'Zone de travail spacieuse',
-		caption: "Espace de travail organisé pour un service de qualité",
+		url: '/img/img2.jpeg',
+		category: 'Équipe',
+		alt: 'Mécanicien PROS-MOTORS intervenant sur un moteur',
+		caption: 'Une équipe qualifiée, formée aux dernières techniques',
 	},
 	{
 		id: 3,
-		url: 'https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=800&h=800&fit=crop',
-		category: 'Équipement',
-		alt: 'Équipement professionnel de réparation',
-		caption: 'Équipements professionnels pour tous types de réparations',
+		url: '/img/img5.jpeg',
+		category: 'Services',
+		alt: 'Trois véhicules capots ouverts en cours de révision',
+		caption: 'Révision et entretien courant, plusieurs véhicules en parallèle',
 	},
 	{
 		id: 4,
-		url: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=800&h=800&fit=crop',
-		category: 'Équipement',
-		alt: 'Outillage de diagnostic',
-		caption: 'Diagnostic de précision, équipement de dernière génération',
+		url: '/img/img10.jpeg',
+		category: 'Atelier',
+		alt: "Aire de travail de l'atelier avec véhicules en réparation",
+		caption: 'Une aire de travail spacieuse pour tous types de véhicules',
 	},
 	{
 		id: 5,
-		url: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=800&fit=crop',
+		url: '/img/img4jpeg.jpeg',
 		category: 'Équipe',
-		alt: 'Mécanicien PROS-MOTORS au travail',
-		caption: 'Une équipe qualifiée et formée aux dernières techniques',
+		alt: 'Technicien réalisant un diagnostic sous le capot',
+		caption: 'Diagnostic moteur réalisé par nos techniciens',
 	},
 	{
 		id: 6,
-		url: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=800&fit=crop&sat=-30',
-		category: 'Équipe',
-		alt: 'Technicien effectuant un diagnostic',
-		caption: 'Professionnalisme et expertise à votre service',
+		url: '/img/img9.jpeg',
+		category: 'Services',
+		alt: 'SUV sur cales, roues démontées pour intervention',
+		caption: 'Train roulant, freinage et pneumatiques',
 	},
 	{
 		id: 7,
-		url: 'https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=800&h=800&fit=crop&sat=-20',
-		category: 'Services',
-		alt: 'Service de vidange rapide',
-		caption: 'Quick Service — restitution le jour même',
+		url: '/img/img1.jpeg',
+		category: 'Atelier',
+		alt: 'Véhicule client réceptionné à l’atelier',
+		caption: 'Réception et prise en charge des véhicules clients',
 	},
 	{
 		id: 8,
-		url: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=800&h=800&fit=crop&sat=-20',
-		category: 'Services',
-		alt: 'Station de lavage automobile',
-		caption: 'Nettoyage complet et lustrage professionnel',
+		url: '/img/img8.jpeg',
+		category: 'Équipe',
+		alt: 'Techniciens PROS-MOTORS en intervention sur le parc',
+		caption: 'Nos techniciens à l’écoute, du devis à la restitution',
+	},
+	{
+		id: 9,
+		url: '/img/img3.jpeg',
+		category: 'Atelier',
+		alt: "Zone de stationnement de l'atelier PROS-MOTORS",
+		caption: 'Un espace dédié au stationnement des véhicules en attente',
 	},
 ]
 
-export const galleryCategories = [
-	'Tout',
-	'Atelier',
-	'Équipement',
-	'Équipe',
-	'Services',
-]
-
-// Comparateur avant/après — démo tôlerie-peinture (image à remplacer).
-export const beforeAfter = {
-	url: 'https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=1200&h=700&fit=crop',
-	altBefore: 'Véhicule avant intervention',
-	altAfter: 'Véhicule après tôlerie-peinture',
-}
+export const galleryCategories = ['Tout', 'Atelier', 'Équipe', 'Services']
