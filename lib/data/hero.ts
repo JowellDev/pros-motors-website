@@ -1,23 +1,25 @@
+// Photos réelles de l'atelier (public/img) — format paysage uniquement :
+// le hero est un fond plein cadre, les portraits y seraient trop recadrés.
 export const heroSlides = [
 	{
-		url: 'https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1800&q=80',
-		label: 'Atelier moderne',
+		url: '/img/img6jpeg.jpeg',
+		label: 'Notre atelier à Cocody',
 	},
 	{
-		url: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1800&q=80',
+		url: '/img/img2.jpeg',
 		label: 'Mécanique générale',
 	},
 	{
-		url: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1800&q=80',
-		label: 'Diagnostic professionnel',
+		url: '/img/img5.jpeg',
+		label: 'Révision & entretien',
 	},
 	{
-		url: 'https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=1800&q=80',
-		label: 'Tôlerie & peinture',
+		url: '/img/img9.jpeg',
+		label: 'Train roulant & pneumatiques',
 	},
 	{
-		url: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=1800&q=80',
-		label: 'Service rapide',
+		url: '/img/img10.jpeg',
+		label: 'Prise en charge complète',
 	},
 ]
 
